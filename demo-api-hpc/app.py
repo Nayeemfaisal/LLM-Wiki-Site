@@ -7,6 +7,8 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
+from eis_intake import inspect_eis_csv
+
 
 ROOT = Path(__file__).resolve().parent
 JOBS_DIR = ROOT / "jobs"
@@ -20,6 +22,10 @@ app = FastAPI(
 
 class JobRequest(BaseModel):
     input_csv: str = "sample_battery.csv"
+
+
+class EisIntakeRequest(BaseModel):
+    input_csv: str = "sample_eis.csv"
 
 
 def job_paths(job_id):
@@ -48,6 +54,15 @@ def root():
         "docs": "/docs",
         "submit": "POST /jobs",
     }
+
+
+@app.post("/intake/eis")
+def inspect_eis(request: EisIntakeRequest):
+    """Check whether a local EIS CSV has the minimum DRT input structure."""
+    input_csv = (ROOT / request.input_csv).resolve()
+    if ROOT not in input_csv.parents or not input_csv.exists():
+        raise HTTPException(status_code=400, detail=f"input CSV not found: {request.input_csv}")
+    return inspect_eis_csv(input_csv)
 
 
 @app.post("/jobs")

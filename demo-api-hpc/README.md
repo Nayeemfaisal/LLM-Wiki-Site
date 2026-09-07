@@ -17,6 +17,8 @@ Later, the local mock runner can be replaced by a real HPC scheduler call, for e
 - `app.py` - FastAPI demo service.
 - `worker.py` - small battery CSV processing script.
 - `sample_battery.csv` - tiny demo input file.
+- `sample_eis.csv` - small, synthetic EIS structure example for intake testing.
+- `eis_intake.py` - read-only structural EIS check before a DRT workflow.
 - `requirements.txt` - minimal Python packages.
 - `jobs/` - runtime output folder, ignored by Git.
 
@@ -56,6 +58,18 @@ Get result:
 ```bash
 curl http://localhost:8090/jobs/<job_id>/result
 ```
+
+Screen an EIS CSV before DRT preparation:
+
+```bash
+curl -X POST http://localhost:8090/intake/eis \
+  -H "Content-Type: application/json" \
+  -d '{"input_csv":"sample_eis.csv"}'
+```
+
+The intake response checks required columns, finite numeric values, positive
+frequencies, duplicate frequencies, and ordering. It is not a Kramers-Kronig
+test and it is not evidence that a DRT result is scientifically valid.
 
 ## HPC Replacement Point
 

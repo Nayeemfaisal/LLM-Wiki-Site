@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>September Research Intake | Battery DRT Research</title>
+  <meta name="description" content="Dated battery dataset research intake for September 2026.">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../pipeline-handoff/">Research handoff</a>
+      <a class="side-link" href="../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../findings/">Research findings</a>
+      <a class="side-link" href="../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../demo-api-hpc/">API/HPC demo code</a>
+      <a class="side-link" href="../../okf/">OKF knowledge bundle</a>
+      <a class="side-link" href="../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">September intake</span><span class="eyebrow">7 September 2026</span><span class="eyebrow">Evidence first</span></div>
+        <h1>New battery data: one clear candidate, three controlled follow-ups</h1>
+        <p class="lead">This update records what was verified from public source descriptions, what remains unknown, and the backend work added before any DRT analysis begins.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="compact-reader">
+          <div class="section-kicker">Verified candidate</div>
+          <h2>A123 LFP multimodal electrochemical dataset</h2>
+          <ul>
+            <li><strong>Published coverage:</strong> 71 A123-type LFP cells with charge-discharge, EIS, CV, ICA, and PITT records.</li>
+            <li><strong>Time-series side:</strong> each charge-discharge workbook contains voltage, current, capacity, and time-series data.</li>
+            <li><strong>EIS side:</strong> one EIS text file is published for each numbered cell.</li>
+            <li><strong>Why it is promising:</strong> matching cell numbers provide a concrete first join key.</li>
+            <li><strong>What is not claimed:</strong> matching filenames alone do not prove the same SOC, temperature, test stage, or measurement protocol.</li>
+          </ul>
+          <p class="small-note"><a href="https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset" target="_blank" rel="noopener">Open the public A123 source record</a></p>
+        </section>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag">EIS quality reference</span><h3>Oxford multisine EIS</h3><p>Raw current and voltage signals are published for multisine EIS. The most immediate use is checking signal quality and stationarity assumptions, not claiming an ageing-data match.</p><a href="https://ora.ox.ac.uk/objects/uuid%3A449dd462-0a37-45d0-88f9-832b84d27283" target="_blank" rel="noopener">Open source record</a></article>
+          <article class="professional-card"><span class="tag warn">Needs file check</span><h3>Multi-SOC ageing with EIS</h3><p>The publication describes periodic capacity and EIS measurements across multiple SOC and temperature states. Its raw-file identifiers and licence need inspection before it can enter the adapter queue.</p><a href="https://doi.org/10.1016/j.dib.2025.112282" target="_blank" rel="noopener">Open publication record</a></article>
+          <article class="professional-card"><span class="tag">Backend reference</span><h3>Pipeline robustness data</h3><p>A battery-data test set with varied exports and intentional errors can later exercise parser failures. It is kept separate from scientific validation data.</p><a href="https://zenodo.org/records/21337233" target="_blank" rel="noopener">Open Zenodo record</a></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Backend work completed</div>
+          <h2>Structural EIS intake endpoint added</h2>
+          <ul>
+            <li><strong>Endpoint:</strong> <code>POST /intake/eis</code> in the local API/HPC demo.</li>
+            <li><strong>Checks:</strong> expected columns, finite numeric values, positive frequency, duplicate frequency count, and frequency ordering.</li>
+            <li><strong>Output:</strong> a transparent JSON report with a clear <code>drt_input_ready</code> flag.</li>
+            <li><strong>Limit:</strong> it is only structural screening. Kramers-Kronig, reconstruction, residual, stability, and uncertainty checks still belong to the scientific DRT workflow.</li>
+          </ul>
+          <p class="small-note"><a href="../../demo-api-hpc/">Open the API/HPC demo notes</a> · <a href="../../research-tools/dataset_evidence_ledger.csv">Open the source evidence ledger</a></p>
+        </section>
+        <section class="research-panel"><div class="section-kicker">Next controlled task</div><h2>Build a small A123 file manifest before modelling</h2><p>Inspect one or two cell folders, record headers and units, and prove whether cell number can be refined into a state-aware TS-to-EIS join. Only then should the adapter or DRT experiment start.</p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var themeKey = "battery-drt-site-theme";
+    var sidebarKey = "battery-drt-site-sidebar";
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      var label = document.querySelector("[data-theme-label]");
+      if (label) label.textContent = theme === "dark" ? "On" : "Off";
+    }
+    function setSidebar(state) {
+      document.documentElement.dataset.sidebar = state;
+      var collapsed = state === "collapsed";
+      var button = document.querySelector("[data-sidebar-toggle]");
+      var icon = document.querySelector("[data-sidebar-icon]");
+      var label = document.querySelector("[data-sidebar-label]");
+      if (button) button.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      if (icon) icon.textContent = collapsed ? "Menu" : "X";
+      if (label) label.textContent = collapsed ? "Menu" : "Close";
+    }
+    var savedTheme;
+    var savedSidebar;
+    try { savedTheme = localStorage.getItem(themeKey); savedSidebar = localStorage.getItem(sidebarKey); } catch (error) {}
+    setTheme(savedTheme === "dark" || savedTheme === "light" ? savedTheme : "light");
+    setSidebar(savedSidebar === "collapsed" || savedSidebar === "expanded" ? savedSidebar : (window.matchMedia("(max-width: 850px)").matches ? "collapsed" : "expanded"));
+    window.addEventListener("DOMContentLoaded", function () {
+      var theme = document.querySelector("[data-theme-toggle]");
+      var sidebar = document.querySelector("[data-sidebar-toggle]");
+      if (theme) theme.addEventListener("click", function () { var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; try { localStorage.setItem(themeKey, next); } catch (error) {} setTheme(next); });
+      if (sidebar) sidebar.addEventListener("click", function () { var next = document.documentElement.dataset.sidebar === "collapsed" ? "expanded" : "collapsed"; try { localStorage.setItem(sidebarKey, next); } catch (error) {} setSidebar(next); });
+    });
+  })();
+  </script>
+</body>
+</html>
