@@ -1,0 +1,78 @@
+{
+  "registry_date": "2026-09-08",
+  "scope": "Public-source screening for a TS + EIS + DRT research pipeline. Evidence levels are 0 = not established, 1 = partial public indication, 2 = explicit public indication. Scores support audit planning only; they do not prove a scientific match.",
+  "candidates": [
+    {
+      "id": "lfp_soc_eis_pulse",
+      "name": "LFP SOC EIS and sine-wave pulse dataset",
+      "source_url": "https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset",
+      "role": "First state-aware audit candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 2, "ageing_context": 0, "raw_access": 1, "license_clarity": 1, "schema_metadata": 0},
+      "known_from_source": "Commercial 26650 LFP cells; EIS and short-period sine-wave pulse material; CC0 licence.",
+      "audit_question": "Do an EIS file and a pulse file expose the same SOC, temperature, cell, and acquisition identifiers?"
+    },
+    {
+      "id": "mendeley_fast_charge_ageing",
+      "name": "Early-stage fast-charging ageing dataset",
+      "source_url": "https://data.mendeley.com/datasets/y328pbyvy4/1",
+      "role": "First ageing-oriented audit candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 1, "ageing_context": 2, "raw_access": 1, "license_clarity": 1, "schema_metadata": 0},
+      "known_from_source": "Twelve Samsung INR18650-20R cells with raw cycling, characterisation, temperature, and post-ageing EIS; CC BY 4.0.",
+      "audit_question": "Can cycle, cell, check-up, temperature, and EIS test identifiers be joined without inference?"
+    },
+    {
+      "id": "degradation_path_48_cell",
+      "name": "Degradation path indicators for lithium-ion batteries",
+      "source_url": "https://zenodo.org/records/15755725",
+      "role": "Ageing and DRT comparison candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 1, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "48 cells with ageing, check-ups, pulses, pseudo-OCV, EIS, and BOL/EOL DRT peak files.",
+      "audit_question": "Can BOL/EOL spectra, cycles, and published DRT peak files be linked through the cell archive and metrics workbook?"
+    },
+    {
+      "id": "online_eis_prediction",
+      "name": "Online battery EIS prediction dataset",
+      "source_url": "https://github.com/xtangai/iSCIENCE-D-23-00535",
+      "role": "Direct TS-to-EIS modelling benchmark",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 1, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "Dynamic current and voltage groups are published alongside EIS trajectories, frequency, real, and imaginary components.",
+      "audit_question": "Does each dynamic profile preserve a stable identifier to its corresponding EIS trajectory after source conversion?"
+    },
+    {
+      "id": "a123_multimodal",
+      "name": "A123 LFP multimodal electrochemical dataset",
+      "source_url": "https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset",
+      "role": "Broad multimodal file-manifest candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 0, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "71 cells with charge-discharge, EIS, CV, ICA, and PITT files organised by cell number.",
+      "audit_question": "Does shared cell numbering represent compatible state and protocol, rather than only a broad per-cell association?"
+    },
+    {
+      "id": "oxford_multisine",
+      "name": "Oxford multisine Li-ion EIS dataset",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid%3A449dd462-0a37-45d0-88f9-832b84d27283",
+      "role": "Signal-quality and reconstruction reference",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 1, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "Raw current and voltage time series support independent EIS linearity, stationarity, and operando reconstruction checks.",
+      "audit_question": "Which MATLAB variables define the excitation, voltage response, operating condition, and reconstructed impedance?"
+    },
+    {
+      "id": "mendeley_eis_degradation_modes",
+      "name": "Lithium-ion EIS dataset with fitting and degradation modes",
+      "source_url": "https://data.mendeley.com/datasets/g7ncmhrcrz/2",
+      "role": "Ageing EIS control",
+      "evidence": {"ts_eis_pairing": 0, "state_metadata": 2, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "Eight Samsung INR18650-30Q cells, periodic check-ups at 25-cycle steps, EIS, capacity fade, and degradation modes.",
+      "audit_question": "Which columns and identifiers support a stable EIS-versus-ageing comparison?"
+    },
+    {
+      "id": "digicell_eis_control",
+      "name": "DigiCell 54-cell NMC811 EIS dataset",
+      "source_url": "https://zenodo.org/records/15422339",
+      "role": "Machine-readable EIS schema control",
+      "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
+      "known_from_source": "54 EIS CSV files at 30% SOC with CSVW and JSON-LD metadata.",
+      "audit_question": "Can its declared CSVW schema map directly into the local EIS intake contract?"
+    }
+  ]
+}

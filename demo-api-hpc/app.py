@@ -8,10 +8,12 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from eis_intake import inspect_eis_csv, inspect_eis_directory
+from candidate_ranking import rank_candidates
 
 
 ROOT = Path(__file__).resolve().parent
 JOBS_DIR = ROOT / "jobs"
+REGISTRY_PATH = ROOT.parent / "research-tools" / "candidate_registry.json"
 
 app = FastAPI(
     title="bAIttery API-to-HPC Demo",
@@ -57,6 +59,21 @@ def root():
         "message": "bAIttery API-to-HPC demo",
         "docs": "/docs",
         "submit": "POST /jobs",
+    }
+
+
+@app.get("/research/candidate-priorities")
+def candidate_priorities():
+    """Expose the transparent source-audit planning score used by the wiki."""
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    return {
+        "registry_date": registry["registry_date"],
+        "scope": registry["scope"],
+        "ranked_candidates": rank_candidates(registry["candidates"]),
+        "interpretation_note": (
+            "Planning score only. A higher score does not validate a TS/EIS "
+            "match or any DRT conclusion."
+        ),
     }
 
 
