@@ -7,7 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from eis_intake import inspect_eis_csv
+from eis_intake import inspect_eis_csv, inspect_eis_directory
 
 
 ROOT = Path(__file__).resolve().parent
@@ -26,6 +26,10 @@ class JobRequest(BaseModel):
 
 class EisIntakeRequest(BaseModel):
     input_csv: str = "sample_eis.csv"
+
+
+class EisDirectoryIntakeRequest(BaseModel):
+    input_directory: str = "."
 
 
 def job_paths(job_id):
@@ -63,6 +67,17 @@ def inspect_eis(request: EisIntakeRequest):
     if ROOT not in input_csv.parents or not input_csv.exists():
         raise HTTPException(status_code=400, detail=f"input CSV not found: {request.input_csv}")
     return inspect_eis_csv(input_csv)
+
+
+@app.post("/intake/eis-directory")
+def inspect_eis_directory_route(request: EisDirectoryIntakeRequest):
+    """Return file-by-file structural reports for local EIS CSV files."""
+    input_directory = (ROOT / request.input_directory).resolve()
+    if ROOT not in input_directory.parents and input_directory != ROOT:
+        raise HTTPException(status_code=400, detail="input directory must be inside the demo folder")
+    if not input_directory.is_dir():
+        raise HTTPException(status_code=400, detail=f"input directory not found: {request.input_directory}")
+    return inspect_eis_directory(input_directory)
 
 
 @app.post("/jobs")

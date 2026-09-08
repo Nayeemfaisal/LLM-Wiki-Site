@@ -64,3 +64,21 @@ def inspect_eis_csv(path):
             "residual, stability, and uncertainty checks before interpreting DRT."
         ),
     }
+
+
+def inspect_eis_directory(directory):
+    """Screen every CSV file in one local directory without modifying input data."""
+    directory = Path(directory)
+    reports = [inspect_eis_csv(path) for path in sorted(directory.glob("*.csv"))]
+    ready = [report for report in reports if report["drt_input_ready"]]
+    return {
+        "directory": directory.name,
+        "files_screened": len(reports),
+        "files_structurally_ready": len(ready),
+        "files_needing_review": len(reports) - len(ready),
+        "reports": reports,
+        "scope_note": (
+            "Batch structural screening only. A passing file still requires EIS "
+            "quality and DRT stability checks before scientific interpretation."
+        ),
+    }

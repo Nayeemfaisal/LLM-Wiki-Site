@@ -71,6 +71,18 @@ The intake response checks required columns, finite numeric values, positive
 frequencies, duplicate frequencies, and ordering. It is not a Kramers-Kronig
 test and it is not evidence that a DRT result is scientifically valid.
 
+Screen every CSV in a local folder:
+
+```bash
+curl -X POST http://localhost:8090/intake/eis-directory \
+  -H "Content-Type: application/json" \
+  -d '{"input_directory":"."}'
+```
+
+This endpoint is useful once a small approved source sample has been copied
+into a local intake folder. It returns one report per CSV and never changes the
+source files.
+
 ## HPC Replacement Point
 
 In `app.py`, the current demo calls:

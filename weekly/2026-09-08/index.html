@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supervisor Briefing 2026-09-08 | Battery DRT Research</title>
+  <meta name="description" content="Supervisor-ready research summary and September dataset screen.">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../pipeline-handoff/">Research handoff</a>
+      <a class="side-link" href="../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../findings/">Research findings</a>
+      <a class="side-link" href="../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../demo-api-hpc/">API/HPC demo code</a>
+      <a class="side-link" href="../../research-tools/september_supervisor_briefing.md">Briefing note</a>
+      <a class="side-link" href="../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Supervisor briefing</span><span class="eyebrow">8 September 2026</span><span class="eyebrow">Research evidence</span></div>
+        <h1>From a readable wiki to a testable TS + EIS + DRT pipeline</h1>
+        <p class="lead">This is a concise record of the work completed, the new evidence found, and the decision needed before the next controlled experiment.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Completed</span><h3>Research record</h3><p>Dated updates, findings, candidate screens, and source links make each claim easy to locate and review.</p></article>
+          <article class="professional-card"><span class="tag green">Completed</span><h3>Backend intake</h3><p>The local API can now screen individual EIS CSV files or batches for DRT input structure without modifying source data.</p></article>
+          <article class="professional-card"><span class="tag green">Completed</span><h3>Selection rule</h3><p>A dataset must show time-series, EIS, and a usable join key before it becomes a pipeline candidate.</p></article>
+          <article class="professional-card"><span class="tag warn">Decision needed</span><h3>First source</h3><p>Choose a source for a small manifest and adapter test before starting model work.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Research focus</div>
+          <h2>The research question and the quality gate</h2>
+          <ul>
+            <li><strong>Question:</strong> can time-series measurements be matched to EIS and DRT-ready impedance without guessing missing test context?</li>
+            <li><strong>Gate 1:</strong> time, current, voltage, capacity, temperature, or pulse information is present.</li>
+            <li><strong>Gate 2:</strong> frequency and complex impedance are present with readable units.</li>
+            <li><strong>Gate 3:</strong> cell, test, cycle, SOC, temperature, or protocol metadata can make an honest join.</li>
+            <li><strong>Gate 4:</strong> EIS and DRT quality checks pass before interpretation.</li>
+          </ul>
+        </section>
+        <section>
+          <div class="section-kicker">New evidence screen</div>
+          <h2>Four sources added with distinct roles</h2>
+          <div class="professional-grid">
+            <article class="professional-card"><span class="tag green">File-manifest candidate</span><h3>A123 LFP multimodal data</h3><p>71 cells with paired cell-numbered charge-discharge and EIS files, plus CV, ICA, and PITT. This is the strongest broad multimodal starting point.</p><a href="https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset" target="_blank" rel="noopener">Open source</a></article>
+            <article class="professional-card"><span class="tag green">State-matching candidate</span><h3>LFP EIS and sine-wave pulses</h3><p>A public LFP collection explicitly combines EIS and short-period sine-wave pulse data. It is a focused candidate for testing state-aware matching.</p><a href="https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset" target="_blank" rel="noopener">Open source</a></article>
+            <article class="professional-card"><span class="tag">Ageing comparison candidate</span><h3>48-cell degradation indicators</h3><p>Ageing, pulses, pseudo-OCV, EIS, NFRA, and published DRT peaks create a valuable comparison setting once cell and check-up linkage is audited.</p><a href="https://zenodo.org/records/15755725" target="_blank" rel="noopener">Open source</a></article>
+            <article class="professional-card"><span class="tag">Quality-control reference</span><h3>Oxford multisine EIS</h3><p>Raw current and voltage time series enable independent checks of EIS linearity and stationarity. It is a method reference, not an ageing benchmark.</p><a href="https://ora.ox.ac.uk/objects/uuid%3A449dd462-0a37-45d0-88f9-832b84d27283" target="_blank" rel="noopener">Open source</a></article>
+          </div>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Backend evidence</div>
+          <h2>What the local API can now demonstrate</h2>
+          <ul>
+            <li><strong>Job prototype:</strong> accepts a local battery CSV, creates a job record, and returns a JSON summary.</li>
+            <li><strong>Single EIS intake:</strong> <code>POST /intake/eis</code> checks a CSV before DRT preparation.</li>
+            <li><strong>Batch EIS intake:</strong> <code>POST /intake/eis-directory</code> returns one structural report per local CSV.</li>
+            <li><strong>Honest scope:</strong> a positive structural report does not replace Kramers-Kronig, reconstruction, residual, stability, or uncertainty checks.</li>
+          </ul>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Proposed next experiment</div>
+          <h2>One source, one manifest, one reproducible decision</h2>
+          <ul>
+            <li>Choose A123 or the LFP EIS/pulse source.</li>
+            <li>Inspect a very small sample and build a file manifest with fields, units, and identifiers.</li>
+            <li>Prove or reject a state-aware TS-to-EIS join.</li>
+            <li>Run structural intake, then EIS quality and reconstruction checks.</li>
+            <li>Report a pass/fail outcome and retain negative findings.</li>
+          </ul>
+        </section>
+        <section class="research-panel"><div class="section-kicker">Meeting question</div><h2>Decision requested</h2><p>Please select the first source for the adapter test and confirm the main success measure: state-aware matching, impedance reconstruction accuracy, or DRT stability. This keeps the next work focused and comparable.</p><p class="small-note"><a href="../../research-tools/september_supervisor_briefing.md">Open the complete supervisor briefing note</a> · <a href="../../research-tools/dataset_evidence_ledger.csv">Open the source evidence ledger</a></p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var l=document.querySelector("[data-theme-label]");if(l)l.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var c=state==="collapsed",b=document.querySelector("[data-sidebar-toggle]"),i=document.querySelector("[data-sidebar-icon]"),l=document.querySelector("[data-sidebar-label]");if(b)b.setAttribute("aria-expanded",c?"false":"true");if(i)i.textContent=c?"Menu":"X";if(l)l.textContent=c?"Menu":"Close";} var t,s;try{t=localStorage.getItem(themeKey);s=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(t==="dark"||t==="light"?t:"light");applySidebar(s==="collapsed"||s==="expanded"?s:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var th=document.querySelector("[data-theme-toggle]"),sb=document.querySelector("[data-sidebar-toggle]");if(th)th.addEventListener("click",function(){var n=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,n);}catch(error){}applyTheme(n);});if(sb)sb.addEventListener("click",function(){var n=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,n);}catch(error){}applySidebar(n);});});})();
+  </script>
+</body>
+</html>
