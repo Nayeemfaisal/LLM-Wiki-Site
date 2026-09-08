@@ -1,0 +1,4 @@
+source_id,source_url,local_file,artifact_type,cell_id,test_id,cycle,soc_pct,temperature_c,protocol,time_column,current_column,voltage_column,capacity_column,frequency_column,z_real_column,z_imag_column,units_confirmed,license,checksum_sha256,join_key_status,evidence_location,reviewer_note
+lfp_soc_eis_pulse,https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset,,,,,,,,,,,,,,,,,CC0-1.0,,pending_file_review,,Inspect one EIS and one sine-pulse file before assigning a match.
+a123_multimodal,https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset,,,,,,,,,,,,,,,,,citation_requested,,cell_number_candidate,,Cell number is a candidate key; state and test conditions must still be checked.
+degradation_path_48_cell,https://zenodo.org/records/15755725,,,,,,,,,,,,,,,,,open_record,,pending_file_review,,Start from the small extracted_degradation_metrics.xlsx manifest before any cell zip download.

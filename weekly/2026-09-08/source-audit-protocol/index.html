@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source Audit Protocol | Battery DRT Research</title>
+  <meta name="description" content="A reproducible protocol for auditing TS, EIS, and DRT candidate datasets.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../../pipeline-handoff/">Research handoff</a>
+      <a class="side-link" href="../../">Weekly progress</a>
+      <a class="side-link" href="../../../findings/">Research findings</a>
+      <a class="side-link" href="../../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../../demo-api-hpc/">API/HPC demo code</a>
+      <a class="side-link" href="../../../research-tools/source_audit_template.csv">Audit manifest template</a>
+      <a class="side-link" href="../../../research-tools/drt_validation_protocol.md">DRT protocol</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Research method</span><span class="eyebrow">8 September 2026</span></div>
+        <h1>Dataset source audit: proving a match before modelling</h1>
+        <p class="lead">This protocol turns public-source screening into a small, reproducible experiment. It records evidence first and treats a matching claim as the result, not an assumption.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="compact-reader">
+          <div class="section-kicker">Core finding</div><h2>A shared cell ID is necessary, but it is not sufficient</h2>
+          <ul>
+            <li><strong>Needed:</strong> a cell or sample identifier that appears in the TS and EIS material.</li>
+            <li><strong>Also needed:</strong> compatible SOC, temperature, cycle or ageing state, protocol, timestamp or test-point information, and units.</li>
+            <li><strong>Result:</strong> no source is labelled “matched” until these fields are verified from downloaded files and metadata.</li>
+          </ul>
+        </section>
+        <section><div class="section-kicker">Candidate-specific audit plan</div><h2>Three distinct routes into the pipeline</h2><div class="professional-grid">
+          <article class="professional-card"><span class="tag green">First broad audit</span><h3>A123 LFP multimodal</h3><ul><li>Published structure links charge-discharge and EIS files by cell number.</li><li>Audit one cell's spreadsheet and EIS text file.</li><li>Confirm whether state, temperature, and test order support more than a cell-level join.</li></ul><a href="https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset" target="_blank" rel="noopener">Source record</a></article>
+          <article class="professional-card"><span class="tag green">First state audit</span><h3>LFP EIS + sine-wave pulse</h3><ul><li>Built specifically from EIS and short-period pulse measurements for SOC estimation.</li><li>Audit one EIS file and one pulse file for SOC, temperature, and acquisition identifiers.</li><li>Use only confirmed shared conditions for the first TS-to-EIS adapter.</li></ul><a href="https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset" target="_blank" rel="noopener">Source record</a></article>
+          <article class="professional-card"><span class="tag">Ageing comparison</span><h3>48-cell degradation path</h3><ul><li>Provides raw ageing, check-up, EIS, and published DRT peak material.</li><li>Start from the 17 kB degradation metrics workbook, not the full archive.</li><li>Audit BOL/EOL naming and ageing-condition fields before comparing DRT outputs.</li></ul><a href="https://zenodo.org/records/15755725" target="_blank" rel="noopener">Source record</a></article>
+        </div></section>
+        <section class="compact-reader"><div class="section-kicker">Reproducible local work</div><h2>What was added to the repository</h2><ul><li><strong>Audit template:</strong> a CSV with identifiers, state fields, units, licence, hash, and evidence location.</li><li><strong>Read-only inventory tool:</strong> records local paths, extensions, sizes, SHA-256 checksums, and simple CSV/TXT/TSV headers.</li><li><strong>DRT evaluation protocol:</strong> separates file screening from EIS quality, impedance reconstruction, stability, and uncertainty checks.</li></ul><pre><code>python3 research-tools/audit_source_layout.py /path/to/small-source-sample --output /tmp/source-audit.json</code></pre></section>
+        <section class="research-panel"><div class="section-kicker">Next controlled step</div><h2>Download the smallest defensible sample</h2><p>For the first source, retain the source landing page, licence, file checksums, and field evidence. Then create a small manifest and decide, in writing, whether the source can support a state-aware join. A negative decision is still a useful result.</p><p class="small-note"><a href="../../../research-tools/source_audit_template.csv">Open the manifest template</a> · <a href="../../../research-tools/drt_validation_protocol.md">Open the DRT evaluation protocol</a> · <a href="../">Back to supervisor briefing</a></p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function(){var themeKey="battery-drt-site-theme",sidebarKey="battery-drt-site-sidebar";function applyTheme(t){document.documentElement.dataset.theme=t;var l=document.querySelector("[data-theme-label]");if(l)l.textContent=t==="dark"?"On":"Off";}function applySidebar(s){document.documentElement.dataset.sidebar=s;var c=s==="collapsed",b=document.querySelector("[data-sidebar-toggle]"),i=document.querySelector("[data-sidebar-icon]"),l=document.querySelector("[data-sidebar-label]");if(b)b.setAttribute("aria-expanded",c?"false":"true");if(i)i.textContent=c?"Menu":"X";if(l)l.textContent=c?"Menu":"Close";}var t,s;try{t=localStorage.getItem(themeKey);s=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(t==="dark"||t==="light"?t:"light");applySidebar(s==="collapsed"||s==="expanded"?s:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var th=document.querySelector("[data-theme-toggle]"),sb=document.querySelector("[data-sidebar-toggle]");if(th)th.addEventListener("click",function(){var n=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,n);}catch(error){}applyTheme(n);});if(sb)sb.addEventListener("click",function(){var n=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,n);}catch(error){}applySidebar(n);});});})();
+  </script>
+</body>
+</html>
