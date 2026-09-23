@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Reading Note | 23 September 2026</title>
+  <meta name="description" content="Dated research reading note on battery data from production to prediction.">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../pipeline-handoff/">Research handoff</a>
+      <a class="side-link" href="../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../findings/">Research findings</a>
+      <a class="side-link" href="../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../demo-api-hpc/">API/HPC demo code</a>
+      <a class="side-link" href="../../research-tools/source_audit_template.csv">Source-audit template</a>
+      <a class="side-link" href="../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Research reading note</span><span class="eyebrow">23 September 2026</span><span class="eyebrow">Evidence first</span></div>
+        <h1>Battery data work starts with traceable experimental context</h1>
+        <p class="lead">A supervisor-provided review was assessed and translated into practical requirements for the TS + EIS + DRT pipeline.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="compact-reader">
+          <div class="section-kicker">Paper assessed</div>
+          <h2>From production to prediction</h2>
+          <ul>
+            <li><strong>Source:</strong> Hassini, Redondo-Iglesias, and Venet, <em>Lithium-Ion Battery Data: From Production to Prediction</em> (2023).</li>
+            <li><strong>Main message:</strong> battery datasets are heterogeneous because the experiment, instrument, sampling, file format, and use case differ.</li>
+            <li><strong>Pipeline implication:</strong> raw values alone are not sufficient; each imported source needs provenance, measurement context, units, and identifiers.</li>
+            <li><strong>Why it fits this project:</strong> our proposed TS-to-EIS join needs a documented cell, state, temperature, and protocol relationship before DRT is interpreted.</li>
+          </ul>
+          <p class="small-note"><a href="https://doi.org/10.3390/batteries9070385" target="_blank" rel="noopener">Open the published review</a> · <a href="https://hal.science/hal-04166314/document" target="_blank" rel="noopener">Open the supervisor-provided HAL link</a></p>
+        </section>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Adopt now</span><h3>Source manifest</h3><p>Record file name, checksum, schema, units, licence, instrument, and the evidence location before adapting data.</p></article>
+          <article class="professional-card"><span class="tag green">Adopt now</span><h3>Data segmentation</h3><p>Keep test, cycle, pulse, rest, EIS sweep, and check-up boundaries explicit rather than merging them into one table.</p></article>
+          <article class="professional-card"><span class="tag green">Adopt now</span><h3>Join evidence</h3><p>Store the field and rule used to pair a TS segment with an EIS spectrum. A filename similarity is not enough.</p></article>
+          <article class="professional-card"><span class="tag warn">Do not assume</span><h3>DRT meaning</h3><p>A DRT result is not scientific evidence until impedance quality, reconstruction, stability, and uncertainty have been reviewed.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Concrete update to our workflow</div>
+          <h2>Four gates before model work</h2>
+          <ul>
+            <li><strong>Gate 1: source integrity.</strong> Keep a read-only record of what was downloaded and from where.</li>
+            <li><strong>Gate 2: experiment context.</strong> Identify cell, chemistry, test stage, SOC, temperature, protocol, and units.</li>
+            <li><strong>Gate 3: TS-to-EIS join.</strong> Prove the shared state key or report that the source cannot support the match.</li>
+            <li><strong>Gate 4: DRT quality.</strong> Run EIS and reconstruction checks before interpreting relaxation features.</li>
+          </ul>
+          <p class="small-note"><a href="../../weekly/2026-09-08/source-audit-protocol/">Open the existing source-audit protocol</a> · <a href="../../research-tools/drt_validation_protocol.md">Open the DRT validation protocol</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Second supervisor link</div>
+          <h2>TUM MediaTUM record: queued for metadata review</h2>
+          <ul>
+            <li><strong>Link received:</strong> the MediaTUM record has been retained in the research log.</li>
+            <li><strong>Access status:</strong> its landing page was protected by anti-bot access controls during this review, so its title, methods, and claims have not been inferred.</li>
+            <li><strong>Next action:</strong> capture the official title, authors, year, abstract, and dataset/software relevance from an accessible institutional page before adding conclusions to the evidence ledger.</li>
+          </ul>
+          <p class="small-note"><a href="https://mediatum.ub.tum.de/1699705" target="_blank" rel="noopener">Open the supervisor-provided MediaTUM link</a></p>
+        </section>
+        <section class="research-panel"><div class="section-kicker">Decision for the next session</div><h2>Use the A123 or LFP EIS/pulse source for a first manifest</h2><p>The paper reinforces the current plan: inspect a small lawful sample, document the experimental context, prove or reject a join, and only then run the DRT workflow. This preserves a clear separation between source screening and scientific validation.</p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>
