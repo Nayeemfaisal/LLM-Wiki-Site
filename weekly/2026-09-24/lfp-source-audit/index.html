@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LFP Source Audit | 24 September 2026</title>
+  <meta name="description" content="Read-only audit of an open LFP cosine-pulse and EIS source.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../">Weekly progress</a>
+      <a class="side-link" href="../../../findings/">Research findings</a>
+      <a class="side-link" href="../../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../../research-tools/dataset_evidence_ledger.csv">Evidence ledger</a>
+      <a class="side-link" href="../../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">File-level audit</span><span class="eyebrow">24 September 2026</span><span class="eyebrow">Read-only evidence</span></div>
+        <h1>Open LFP pulse and EIS source: first audit result</h1>
+        <p class="lead">The source has promising parallel folders and an open licence. The first inspected pair does not yet prove a scientific TS-to-EIS match.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Confirmed</span><h3>Open licence</h3><p>The repository metadata identifies Creative Commons Zero 1.0 Universal.</p></article>
+          <article class="professional-card"><span class="tag green">Confirmed</span><h3>Parallel groups</h3><p>COS and EIS material both use 0.05 A and 0.1 A charge/discharge condition groups.</p></article>
+          <article class="professional-card"><span class="tag green">Recorded</span><h3>Checksums</h3><p>One processed 0.05 A charge COS file and one EIS file were downloaded and SHA-256 checksummed.</p></article>
+          <article class="professional-card"><span class="tag warn">Not proved</span><h3>Scientific join</h3><p>No shared cell, SOC, repeat, temperature, or measurement-event ID has been demonstrated yet.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">What was inspected</div>
+          <h2>One condition pair, no transformations</h2>
+          <ul>
+            <li><strong>COS file:</strong> `COS_0.05A_Charge.mat`, 476,570 bytes, SHA-256 `7fefe4c10cdcbdb90a4ee8d932e2480273e0207ddd17a8ff9e2d7da970687a84`.</li>
+            <li><strong>EIS file:</strong> `EIS_0.05A_Charge.mat`, 320,850 bytes, SHA-256 `7f4ae28ecb686ed20ec8188df7e83fb257e854eac0db50cbe7f5a6f067b272a0`.</li>
+            <li><strong>Format:</strong> both files identify as MATLAB v5 MAT files.</li>
+            <li><strong>Scope:</strong> no data transformation, model fitting, or DRT fitting was performed.</li>
+          </ul>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Evidence decision</div>
+          <h2>More metadata needed</h2>
+          <ul>
+            <li><strong>Supported:</strong> the source has condition-level COS and EIS correspondence.</li>
+            <li><strong>Not supported:</strong> a claim that the selected files represent the same cell, SOC, test repeat, or measurement event.</li>
+            <li><strong>Next step:</strong> inspect a raw XLSX pair or documented MAT variables to record the explicit pairing key, units, SOC, temperature, and frequency ordering.</li>
+            <li><strong>Stop rule:</strong> if no state-aware key is present, retain the negative result and use the source only as a method reference.</li>
+          </ul>
+          <p class="small-note"><a href="https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset" target="_blank" rel="noopener">Open source repository</a> · <a href="../../../research-tools/LFP_SOC_EIS_PULSE_AUDIT_2026_09_24.md">Open editable audit note</a> · <a href="../../../research-tools/audit_records/lfp_soc_eis_pulse_2026-09-24.json">Open machine-readable audit record</a></p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>

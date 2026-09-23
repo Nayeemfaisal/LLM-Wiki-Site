@@ -1,0 +1,45 @@
+{
+  "audit_date": "2026-09-24",
+  "source_id": "lfp_soc_eis_pulse",
+  "source_url": "https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset",
+  "source_license": "CC0-1.0",
+  "audit_scope": "Read-only inspection of one processed cosine-pulse MAT file and one processed EIS MAT file from the 0.05 A charge condition.",
+  "repository_observations": {
+    "condition_groups": [
+      "0.05 A charge",
+      "0.05 A discharge",
+      "0.1 A charge",
+      "0.1 A discharge"
+    ],
+    "processed_formats": ["MATLAB v5 MAT"],
+    "raw_formats": ["XLSX"],
+    "layout_observation": "Both COS and EIS directories expose the same four current-direction condition labels. This establishes condition-level correspondence only."
+  },
+  "inspected_files": [
+    {
+      "repository_path": "COS_Raw&Processed_data_for_DIB/COS_Processed_data_mat/COS_0.05A_Charge.mat",
+      "artifact_type": "processed cosine-pulse time-series material",
+      "bytes": 476570,
+      "sha256": "7fefe4c10cdcbdb90a4ee8d932e2480273e0207ddd17a8ff9e2d7da970687a84",
+      "file_signature": "MATLAB v5 MAT, little endian, platform MACA64"
+    },
+    {
+      "repository_path": "EIS_Raw & Processed_data_for_DIB/EIS_Processed_data_mat/EIS_0.05A_Charge.mat",
+      "artifact_type": "processed impedance material",
+      "bytes": 320850,
+      "sha256": "7f4ae28ecb686ed20ec8188df7e83fb257e854eac0db50cbe7f5a6f067b272a0",
+      "file_signature": "MATLAB v5 MAT, little endian, platform MACA64"
+    }
+  ],
+  "result": "more_metadata_needed",
+  "supported_claims": [
+    "The repository is explicitly CC0-1.0 licensed.",
+    "Processed COS and EIS files exist for the same current-direction condition labels.",
+    "The inspected artifacts are readable MATLAB v5 MAT files and their checksums are recorded."
+  ],
+  "unsupported_claims": [
+    "That the inspected COS and EIS files represent the same cell, SOC point, repeat, or measurement event.",
+    "That a time-series-to-EIS join is scientifically supported."
+  ],
+  "next_action": "Inspect a raw XLSX pair or load the MAT variables in an environment with a documented reader. Record cell ID, SOC, temperature, test ID, units, and the explicit pairing key before adapter implementation."
+}
