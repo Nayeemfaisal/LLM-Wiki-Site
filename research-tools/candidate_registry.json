@@ -82,6 +82,15 @@
       "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
       "known_from_source": "Ten commercial LG Chem INR18650 MJ1 cells with ageing measurements, capacity and resistance values, BEV application profiles, charging curves, and a quasi-stationary OCV curve.",
       "audit_question": "Which identifiers link cell, ageing state, charging curve, and BEV profile, and is any EIS data present in the raw archive despite not being described in the public metadata?"
+    },
+    {
+      "id": "tum_196_cell_degradation",
+      "name": "TUM experimental degradation study of commercial lithium-ion cells",
+      "source_url": "https://mediatum.ub.tum.de/1713382",
+      "role": "Large-scale time-series, SOH, and degradation-label reference",
+      "evidence": {"ts_eis_pairing": 0, "state_metadata": 2, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
+      "known_from_source": "196 commercial NCA/silicon-doped graphite cells under calendar, cyclic, and dynamic operating conditions, with periodic check-ups and capacity, resistance, LLI, LAM_NE, and LAM_PE labels.",
+      "audit_question": "Which raw files expose the operational time series and periodic check-up identifiers, and is EIS absent or available as supplementary material?"
     }
   ]
 }
