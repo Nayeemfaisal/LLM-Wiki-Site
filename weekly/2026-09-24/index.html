@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supervisor Update | 24 September 2026</title>
+  <meta name="description" content="Dated supervisor update for the battery TS, EIS, and DRT research pipeline.">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../pipeline-handoff/">Research handoff</a>
+      <a class="side-link" href="../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../findings/">Research findings</a>
+      <a class="side-link" href="../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../demo-api-hpc/">API/HPC demo code</a>
+      <a class="side-link" href="../../research-tools/dataset_evidence_ledger.csv">Evidence ledger</a>
+      <a class="side-link" href="../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Supervisor update</span><span class="eyebrow">24 September 2026</span><span class="eyebrow">Research status</span></div>
+        <h1>Two TUM datasets added to the evidence-led research plan</h1>
+        <p class="lead">This update records the verified contribution of new supervisor-recommended sources and the next controlled data-audit task.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Completed</span><h3>Literature-to-workflow link</h3><p>The battery-data review was converted into four gates: provenance, experiment context, a proven join, and DRT quality.</p></article>
+          <article class="professional-card"><span class="tag green">Added</span><h3>LG MJ1 dataset</h3><p>Ten-cell ageing, charging, BEV profile, and OCV source recorded as a time-series and ageing reference.</p></article>
+          <article class="professional-card"><span class="tag green">Added</span><h3>196-cell TUM study</h3><p>Large ageing campaign with repeated SOH and degradation-mode labels added as a TS-to-SOH benchmark.</p></article>
+          <article class="professional-card"><span class="tag warn">Next gate</span><h3>Raw-file audit</h3><p>Cell, test, state, protocol, units, and available impedance fields must be inspected before adaptation.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Source 1</div>
+          <h2>LG MJ1 ageing, charging, and BEV-profile data</h2>
+          <ul>
+            <li><strong>Published coverage:</strong> ten LG Chem INR18650 MJ1 cells with capacity/resistance ageing data, BEV profiles, charging curves, and quasi-stationary OCV.</li>
+            <li><strong>Pipeline value:</strong> strong for time-series loading, ageing-state metadata, partial-charge analysis, and OCV-related features.</li>
+            <li><strong>Boundary:</strong> EIS is not established by the public description, so it is not presented as a TS + EIS + DRT match.</li>
+          </ul>
+          <p class="small-note"><a href="https://mediatum.ub.tum.de/1690455" target="_blank" rel="noopener">TUM dataset</a> · <a href="https://doi.org/10.1016/j.est.2022.106517" target="_blank" rel="noopener">Associated study</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Source 2</div>
+          <h2>196-cell experimental degradation study</h2>
+          <ul>
+            <li><strong>Published coverage:</strong> 196 commercial NCA/silicon-doped graphite cells under calendar, cycling, and dynamic conditions.</li>
+            <li><strong>Repeated labels:</strong> capacity, resistance, loss of lithium inventory, loss of active anode material, and loss of active cathode material.</li>
+            <li><strong>Pipeline value:</strong> a large TS-to-SOH and degradation-label benchmark for adapter design and robust ageing analysis.</li>
+            <li><strong>Boundary:</strong> it is not a direct DRT validation dataset unless raw impedance data are explicitly found and joinable.</li>
+          </ul>
+          <p class="small-note"><a href="https://mediatum.ub.tum.de/1713382" target="_blank" rel="noopener">TUM dataset</a> · <a href="https://doi.org/10.1016/j.jpowsour.2022.232498" target="_blank" rel="noopener">Associated study</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Research decision</div>
+          <h2>How these sources connect to TS + EIS + DRT</h2>
+          <ul>
+            <li><strong>Direct TS + EIS + DRT sources:</strong> remain the LFP EIS/pulse, fast-charging ageing, degradation-path, online-EIS, and A123 candidates.</li>
+            <li><strong>TUM sources:</strong> strengthen the time-series, ageing, SOH, OCV, and degradation-label side of the research framework.</li>
+            <li><strong>Cross-source use:</strong> a future comparison can test whether TS-derived ageing indicators transfer to EIS/DRT sources, but no transfer claim is made before controlled evaluation.</li>
+            <li><strong>Immediate next step:</strong> build one small source manifest and decide pass, hold, or reject based on actual fields and identifiers.</li>
+          </ul>
+          <p class="small-note"><a href="../../output/pdf/Nayeem_Faisal_Supervisor_Update_2026-09-24.pdf">Download supervisor PDF</a> · <a href="../../research-tools/SUPERVISOR_UPDATE_2026-09-24.md">Open editable supervisor note</a> · <a href="../2026-09-23/">Open 23 September reading note</a></p>
+        </section>
+        <section class="research-panel"><div class="section-kicker">Current status</div><h2>Ready for a small, reproducible adapter experiment</h2><p>The public wiki, source evidence ledger, and evaluation boundary are up to date. The next scientifically useful deliverable is a small file-level manifest and a documented decision about whether one source supports a state-aware match.</p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>
