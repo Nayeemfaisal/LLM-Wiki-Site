@@ -1,5 +1,5 @@
 {
-  "registry_date": "2026-09-08",
+  "registry_date": "2026-09-23",
   "scope": "Public-source screening for a TS + EIS + DRT research pipeline. Evidence levels are 0 = not established, 1 = partial public indication, 2 = explicit public indication. Scores support audit planning only; they do not prove a scientific match.",
   "candidates": [
     {
@@ -73,6 +73,15 @@
       "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
       "known_from_source": "54 EIS CSV files at 30% SOC with CSVW and JSON-LD metadata.",
       "audit_question": "Can its declared CSVW schema map directly into the local EIS intake contract?"
+    },
+    {
+      "id": "tum_mj1_ageing_profiles",
+      "name": "TUM LG MJ1 ageing, charging, and BEV-profile dataset",
+      "source_url": "https://mediatum.ub.tum.de/1690455",
+      "role": "Time-series and ageing reference candidate",
+      "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
+      "known_from_source": "Ten commercial LG Chem INR18650 MJ1 cells with ageing measurements, capacity and resistance values, BEV application profiles, charging curves, and a quasi-stationary OCV curve.",
+      "audit_question": "Which identifiers link cell, ageing state, charging curve, and BEV profile, and is any EIS data present in the raw archive despite not being described in the public metadata?"
     }
   ]
 }
