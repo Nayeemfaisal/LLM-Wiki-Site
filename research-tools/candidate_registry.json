@@ -91,6 +91,33 @@
       "evidence": {"ts_eis_pairing": 0, "state_metadata": 2, "ageing_context": 2, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
       "known_from_source": "196 commercial NCA/silicon-doped graphite cells under calendar, cyclic, and dynamic operating conditions, with periodic check-ups and capacity, resistance, LLI, LAM_NE, and LAM_PE labels.",
       "audit_question": "Which raw files expose the operational time series and periodic check-up identifiers, and is EIS absent or available as supplementary material?"
+    },
+    {
+      "id": "nasa_pcoe_aging_eis",
+      "name": "NASA PCoE lithium-ion battery ageing dataset",
+      "source_url": "https://data.nasa.gov/dataset/li-ion-battery-aging-datasets",
+      "role": "Legacy TS and impedance screening candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 1, "ageing_context": 2, "raw_access": 0, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "The landing record describes charge, discharge, and impedance operations at multiple temperatures, with 10 Hz acquisition and ageing to an end-of-life criterion.",
+      "audit_question": "Does the accessible legacy archive retain stable battery, cycle, temperature, and operation identifiers that allow charge/discharge records to be paired with impedance records without inference?"
+    },
+    {
+      "id": "mendeley_broadband_soc_eis",
+      "name": "Broadband EIS with voltage and current acquisition across SOC",
+      "source_url": "https://doi.org/10.17632/zdsgxwksn5.1",
+      "role": "State-controlled acquisition-to-EIS screening candidate",
+      "evidence": {"ts_eis_pairing": 1, "state_metadata": 2, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "The associated open tools describe raw voltage/current acquisition files and broadband EIS data for lithium-ion batteries at different states of charge.",
+      "audit_question": "Can one acquisition record be linked to one impedance spectrum through cell, SOC, repeat, and test-condition identifiers, with units and frequency ordering preserved?"
+    },
+    {
+      "id": "rwth_eis_analytics_benchmark",
+      "name": "RWTH EIS Data Analytics reproducibility benchmark",
+      "source_url": "https://github.com/isea-rwth-aachen/EIS-Data-Analytics",
+      "role": "EIS and DRT method benchmark",
+      "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 1, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
+      "known_from_source": "The public analytics project includes Lin-KK, equivalent-circuit and DRT fitting workflows, plus reported EIS-based SOC, SOH, temperature, and phase prediction examples.",
+      "audit_question": "Which example inputs are redistributable, and can their documented preprocessing and fitting workflow be reproduced as a non-primary method baseline?"
     }
   ]
 }

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source Screening | 24 September 2026</title>
+  <meta name="description" content="Evidence-led screening of three battery TS, EIS, and DRT research resources.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../">Weekly progress</a>
+      <a class="side-link" href="../../../findings/">Research findings</a>
+      <a class="side-link" href="../../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../../research-tools/dataset_evidence_ledger.csv">Evidence ledger</a>
+      <a class="side-link" href="../../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Source screening</span><span class="eyebrow">24 September 2026</span><span class="eyebrow">Evidence-led intake</span></div>
+        <h1>Three new resources, three distinct roles</h1>
+        <p class="lead">This screen separates an archive candidate, a state-controlled candidate, and a methods benchmark. It does not label any of them a verified TS + EIS + DRT match.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag warn">Archive screen</span><h3>NASA PCoE</h3><p>Potential ageing TS plus impedance source. Legacy-file access and join identifiers require inspection.</p></article>
+          <article class="professional-card"><span class="tag green">First manifest</span><h3>Broadband SOC EIS</h3><p>Reported waveform and impedance material at different SOC values. It is the next small file-pair audit.</p></article>
+          <article class="professional-card"><span class="tag blue">Method baseline</span><h3>RWTH analytics</h3><p>Lin-KK, circuit fitting, and DRT workflows provide a reproducibility comparison, not a new match.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Candidate 1</div>
+          <h2>NASA PCoE lithium-ion battery ageing data</h2>
+          <ul>
+            <li><strong>Reported:</strong> charge, discharge, and impedance operations at multiple temperatures during ageing.</li>
+            <li><strong>Potential value:</strong> the experiment design may support a TS plus impedance audit with temperature context.</li>
+            <li><strong>Current limitation:</strong> the public landing page does not provide an immediately attached data resource; legacy-archive access and terms remain to be checked.</li>
+            <li><strong>Decision:</strong> hold until one lawful archive sample proves stable battery, cycle, operation, and impedance identifiers.</li>
+          </ul>
+          <p class="small-note"><a href="https://data.nasa.gov/dataset/li-ion-battery-aging-datasets" target="_blank" rel="noopener">Open NASA record</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Candidate 2</div>
+          <h2>Broadband EIS with voltage and current acquisition across SOC</h2>
+          <ul>
+            <li><strong>Reported:</strong> raw voltage/current acquisition files and broadband EIS at different states of charge.</li>
+            <li><strong>Potential value:</strong> a tightly scoped SOC-aware source is appropriate for a first file-level matching test.</li>
+            <li><strong>Required check:</strong> prove the cell, SOC, repeat, and test-condition relationship between an acquisition record and an impedance spectrum.</li>
+            <li><strong>Decision:</strong> priority one for the next manifest-backed pass, hold, or reject decision.</li>
+          </ul>
+          <p class="small-note"><a href="https://doi.org/10.17632/zdsgxwksn5.1" target="_blank" rel="noopener">Open data record</a> · <a href="https://github.com/electrical-and-electronic-measurement/LiBEIS" target="_blank" rel="noopener">Open supporting tool</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Method benchmark</div>
+          <h2>RWTH EIS Data Analytics</h2>
+          <ul>
+            <li><strong>Reported:</strong> Lin-KK, equivalent-circuit, and DRT fitting workflows with EIS-based state-estimation examples.</li>
+            <li><strong>Potential value:</strong> a documented method comparator for structural EIS checks and later DRT analysis.</li>
+            <li><strong>Current limitation:</strong> it does not establish a new TS-to-EIS dataset relationship for this project.</li>
+            <li><strong>Decision:</strong> use after reviewing example-data provenance and licence, and after a primary source has passed file-level auditing.</li>
+          </ul>
+          <p class="small-note"><a href="https://github.com/isea-rwth-aachen/EIS-Data-Analytics" target="_blank" rel="noopener">Open RWTH analytics project</a></p>
+        </section>
+        <section class="research-panel"><div class="section-kicker">Audit standard</div><h2>Every new source must earn its place</h2><p>Before source data enter an adapter, the manifest must include provenance, licence, cell or sample ID, test context, state, temperature, protocol, units, file hash, and the explicit time-series-to-EIS join rule. Missing evidence is a research result, not a detail to hide.</p></section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>
