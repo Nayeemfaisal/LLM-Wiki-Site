@@ -25,7 +25,12 @@ quality score and it never upgrades a source to "matched".
 ```bash
 python3 research-tools/rank_candidates.py
 python3 research-tools/audit_source_layout.py /path/to/small-source-sample --output /tmp/source-audit.json
+python3 research-tools/audit_xlsx_workbook.py /path/to/source.xlsx --output /tmp/workbook-audit.json
 ```
+
+`audit_xlsx_workbook.py` is a read-only standard-library tool. It records workbook
+sheet names, dimensions, top rows, and SHA-256 checksums, so source structure can
+be reviewed before any data are transformed or joined.
 
 The local API exposes the same planning view at
 `GET /research/candidate-priorities` when the API dependencies are installed.

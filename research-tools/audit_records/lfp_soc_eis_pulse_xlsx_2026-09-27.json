@@ -1,0 +1,46 @@
+{
+  "audit_date": "2026-09-27",
+  "source_id": "lfp_soc_eis_pulse",
+  "source_url": "https://github.com/yizhaogao2025/LFP_battery_SOC_Dataset",
+  "source_license": "CC0-1.0",
+  "audit_scope": "Read-only structural inspection of one raw COS workbook and one raw EIS workbook from the 0.05 A charge condition.",
+  "tool": "research-tools/audit_xlsx_workbook.py",
+  "workbooks": [
+    {
+      "repository_path": "COS_Raw&Processed_data_for_DIB/COS_Raw_data_xlsx/COS_0.05A_Charge/0.05A_COS_Charge.xlsx",
+      "bytes": 8376560,
+      "sha256": "e9885e5bbd6470d62b17111b5dffb040bb3ae5c646e22a31e4c6c2d3eba3b510",
+      "sheets": [
+        {"name": "Global_Info", "dimension": "A1:O5"},
+        {"name": "Channel_5_1", "dimension": "A1:M82052", "headers": ["Date_Time", "Test_Time(s)", "Step_Time(s)", "Step_Index", "Cycle_Index", "Voltage(V)", "Current(A)", "Charge_Capacity(Ah)", "Discharge_Capacity(Ah)", "Charge_Energy(Wh)", "Discharge_Energy(Wh)", "Internal Resistance(Ohm)", "dV/dt(V/s)"]}
+      ],
+      "reported_schedule": "LFP_26650\\cos_0.05A_charge.sdu",
+      "reported_channel": 5
+    },
+    {
+      "repository_path": "EIS_Raw & Processed_data_for_DIB/EIS_Raw_data_xlsx/EIS_0.05A_Charge/EIS_0.05A_Charge_part1.xlsx",
+      "bytes": 916972,
+      "sha256": "5f2dbbb0830a7b72066380769880a117f7331fddcdf2e2664429f4e2c4afd2a1",
+      "sheets": [
+        {"name": "Global_Info", "dimension": "A1:O5"},
+        {"name": "ACIM_Chan1", "dimension": "A1:I22", "headers": ["Device_ID", "Test_ID", "Channel_ID", "Cycle_ID", "Step_ID", "Pt", "Freq", "Zmod", "Zphz"]},
+        {"name": "Channel_1_1", "dimension": "A1:M8319", "headers": ["Date_Time", "Test_Time(s)", "Step_Time(s)", "Step_Index", "Cycle_Index", "Voltage(V)", "Current(A)", "Charge_Capacity(Ah)", "Discharge_Capacity(Ah)", "Charge_Energy(Wh)", "Discharge_Energy(Wh)", "Internal Resistance(Ohm)", "dV/dt(V/s)"]}
+      ],
+      "reported_schedule": "LFP_26650\\EIS_GALANOSTATIC_EIS_0.05A_charge_direction.sdu",
+      "reported_channel": 1,
+      "acim_example": {"device_id": "Gamry_1", "test_id": 1461, "channel_id": 0, "cycle_id": 1, "step_id": 4}
+    }
+  ],
+  "result": "more_metadata_needed",
+  "supported_claims": [
+    "Raw time-series fields are present in both inspected workbooks.",
+    "The EIS workbook has a distinct ACIM sheet with frequency, impedance magnitude, and impedance phase fields.",
+    "Both artifacts are labelled for the 0.05 A charge condition and use a common LFP_26650 schedule namespace."
+  ],
+  "unsupported_claims": [
+    "That the two files are from the same cell or measurement event.",
+    "That a matching SOC, temperature, or test repeat can be inferred from the shared condition label.",
+    "That the EIS values are ready for DRT without confirming units, sign convention, and state context."
+  ],
+  "next_action": "Locate a source README or metadata mapping that identifies the tested cell and SOC for both channel reports. If it does not exist, retain the source for structural TS and EIS method tests only."
+}
