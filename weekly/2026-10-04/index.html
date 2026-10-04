@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A123 Multimodal Audit | 4 October 2026</title>
+  <meta name="description" content="Read-only A123 LFP time-series and EIS source audit.">
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../findings/">Research findings</a>
+      <a class="side-link" href="../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../research-tools/dataset_evidence_ledger.csv">Evidence ledger</a>
+      <a class="side-link" href="../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">Source audit</span><span class="eyebrow">4 October 2026</span><span class="eyebrow">Read-only evidence</span></div>
+        <h1>A123 LFP: clear cell-level link, no proven event-level match</h1>
+        <p class="lead">The repository contains time-series and EIS files for the same Cell 1 to Cell 71 index. A raw Cell 1 sample was inspected to determine what can honestly be used in the TS + EIS + DRT pipeline.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Cell mapping</span><h3>71 indexed cells</h3><p>The README maps both modalities through the same Cell 1 to Cell 71 filename index.</p></article>
+          <article class="professional-card"><span class="tag green">Cycling file</span><h3>5,661 observations</h3><p>The sampled workbook contains stage, current, and voltage fields.</p></article>
+          <article class="professional-card"><span class="tag green">EIS file</span><h3>60 spectral points</h3><p>Frequency spans 10 kHz to 0.01 Hz with real and imaginary impedance fields.</p></article>
+          <article class="professional-card"><span class="tag warn">Open gate</span><h3>State context missing</h3><p>No sampled field proves the EIS spectrum belongs to a particular cycling segment.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Verified observations</div>
+          <h2>What the sample files actually contain</h2>
+          <ul>
+            <li><strong>Time-series side:</strong> `Stage`, `Current (A)`, and `Voltage (V)` in `Char-dis-Cell1.xlsx`.</li>
+            <li><strong>EIS side:</strong> frequency, amplitude, bias, time, real and imaginary impedance, magnitude, phase, and range in `A123-EIS-1.txt`.</li>
+            <li><strong>Cell-level association:</strong> source documentation states that all 71 cells underwent the test set, with one corresponding file per cell in each folder.</li>
+            <li><strong>Reproducibility:</strong> source paths and SHA-256 checksums are preserved in the audit record.</li>
+          </ul>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Research decision</div>
+          <h2>Useful now, but not yet a supervised TS-to-EIS target</h2>
+          <ul>
+            <li><strong>Allowed:</strong> ingestion tests, EIS schema checks, impedance preflight checks, and DRT-input preparation.</li>
+            <li><strong>Not supported:</strong> a claim that one EIS spectrum matches a known time window, SOC, temperature, or cycling protocol state.</li>
+            <li><strong>Next evidence gate:</strong> obtain source metadata that records state, temperature, test order, and the exact acquisition relationship.</li>
+            <li><strong>Stop rule:</strong> retain this as a cell-level multimodal benchmark if an event-level key cannot be documented.</li>
+          </ul>
+          <p class="small-note"><a href="../../research-tools/A123_MULTIMODAL_AUDIT_2026_10_04.md">Open editable audit note</a> · <a href="../../research-tools/audit_records/a123_multimodal_2026-10-04.json">Open machine-readable audit record</a> · <a href="https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset" target="_blank" rel="noopener">Open source repository</a></p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>

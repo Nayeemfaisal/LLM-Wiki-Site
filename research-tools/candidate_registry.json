@@ -1,5 +1,5 @@
 {
-  "registry_date": "2026-09-23",
+  "registry_date": "2026-10-04",
   "scope": "Public-source screening for a TS + EIS + DRT research pipeline. Evidence levels are 0 = not established, 1 = partial public indication, 2 = explicit public indication. Scores support audit planning only; they do not prove a scientific match.",
   "candidates": [
     {
@@ -43,9 +43,9 @@
       "name": "A123 LFP multimodal electrochemical dataset",
       "source_url": "https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset",
       "role": "Broad multimodal file-manifest candidate",
-      "evidence": {"ts_eis_pairing": 1, "state_metadata": 0, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
-      "known_from_source": "71 cells with charge-discharge, EIS, CV, ICA, and PITT files organised by cell number.",
-      "audit_question": "Does shared cell numbering represent compatible state and protocol, rather than only a broad per-cell association?"
+      "evidence": {"ts_eis_pairing": 2, "state_metadata": 0, "ageing_context": 0, "raw_access": 2, "license_clarity": 0, "schema_metadata": 1},
+      "known_from_source": "71 cells with charge-discharge, EIS, CV, ICA, and PITT files organised by cell number. A read-only Cell 1 audit confirmed a 5,662-row charge/discharge workbook and a 60-point EIS spectrum from 10 kHz to 0.01 Hz.",
+      "audit_question": "Can the source supply state, temperature, protocol, and acquisition-time metadata so that the explicit cell-level association can become an event-level TS-to-EIS match?"
     },
     {
       "id": "oxford_multisine",

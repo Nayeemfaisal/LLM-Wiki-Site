@@ -1,0 +1,44 @@
+{
+  "audit_date": "2026-10-04",
+  "source_id": "a123_multimodal",
+  "source_url": "https://github.com/huangjin-collab/A123-LFP-Battery-Multimodal-Electrochemical-Dataset",
+  "source_license": "not declared in the repository metadata reviewed on this date",
+  "audit_scope": "Read-only repository-tree, README, and Cell 1 file inspection. No data were transformed, fitted, or used for model training.",
+  "repository_observations": {
+    "default_branch": "main",
+    "cell_count_stated_in_readme": 71,
+    "modalities": ["charge-discharge", "EIS", "cyclic voltammetry", "incremental capacity", "PITT"],
+    "cell_number_mapping": "README documents one Cell N file in both charge-discharge and EIS folders for Cell 1 through Cell 71."
+  },
+  "sampled_files": [
+    {
+      "repository_path": "Char-dis-data/Char-dis-Cell1.xlsx",
+      "bytes": 105322,
+      "sha256": "f5c407e49ac17c6db3333d3484df6473087b96e570b9dedc1c4140765a49283e",
+      "sheet": "Sheet1",
+      "dimension": "A1:C5662",
+      "headers": ["Stage", "Current (A)", "Voltage (V)"],
+      "observation": "The sampled workbook contains stage, current, and voltage only; it does not expose a time, SOC, temperature, or explicit test-event field."
+    },
+    {
+      "repository_path": "EIS/A123-EIS-1.txt",
+      "sha256": "413796a4a7199c791758cbe9442d676fda9d174fc0e34d8d5f168eec5f583721",
+      "spectral_points": 60,
+      "frequency_hz": {"first": 10000, "last": 0.01},
+      "headers": ["Freq(Hz)", "Ampl(mV)", "Bias(V)", "Time(Sec)", "Z'(Ohm.cm²)", "Z''(Ohm.cm²)", "|Z|(Ohm.cm²)", "Phase", "Range"],
+      "observation": "The sampled spectrum contains frequency and complex-impedance fields with explicit units in the header."
+    }
+  ],
+  "result": "cell_level_pairing_only",
+  "supported_claims": [
+    "The repository provides a Cell 1 to Cell 71 index across the charge-discharge and EIS folders.",
+    "The sampled EIS file is a directly usable structural input for EIS and DRT preflight checks after unit and sign-convention review.",
+    "The sampled cycling workbook is suitable for a limited structural parser test of stage, current, and voltage fields."
+  ],
+  "unsupported_claims": [
+    "That the sampled EIS spectrum belongs to a known time window in the Cell 1 cycling workbook.",
+    "That the two sampled files share state of charge, temperature, protocol stage, or acquisition time.",
+    "That the data establish an event-level supervised TS-to-EIS target or a DRT validation case."
+  ],
+  "next_action": "Seek state, temperature, protocol, and test-order metadata from the associated publication or authors. Preserve the cell-level mapping and negative event-join result if the metadata cannot be recovered."
+}

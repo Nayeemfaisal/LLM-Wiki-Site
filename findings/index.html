@@ -41,6 +41,17 @@
         </div>
       </header>
       <main>
+        <section class="compact-reader" aria-labelledby="a123-october-title">
+          <div class="section-kicker">Raw-source audit · 4 October 2026</div>
+          <h2 id="a123-october-title">A123 LFP has a cell-level TS/EIS link, but not yet a state-level training target</h2>
+          <ul>
+            <li><strong>Confirmed:</strong> charge-discharge and EIS files are indexed by the same Cell 1 through Cell 71 labels.</li>
+            <li><strong>Confirmed:</strong> the inspected Cell 1 EIS file has 60 points from 10 kHz to 0.01 Hz with explicit impedance fields and units.</li>
+            <li><strong>Missing:</strong> the inspected cycling workbook does not expose time, SOC, temperature, or a test-event key that joins it to the EIS spectrum.</li>
+            <li><strong>Decision:</strong> use it for cell-level ingestion and EIS/DRT preparation, while seeking metadata before any event-level model claim.</li>
+          </ul>
+          <p class="small-note"><a href="../weekly/2026-10-04/">Open the full A123 source audit</a> · <a href="../research-tools/audit_records/a123_multimodal_2026-10-04.json">Open the evidence record</a></p>
+        </section>
         <section class="compact-reader" aria-labelledby="source-screen-title">
           <div class="section-kicker">Source screening · 24 September 2026</div>
           <h2 id="source-screen-title">New sources are ranked by the evidence they can actually support</h2>
