@@ -118,6 +118,15 @@
       "evidence": {"ts_eis_pairing": 0, "state_metadata": 1, "ageing_context": 1, "raw_access": 1, "license_clarity": 0, "schema_metadata": 0},
       "known_from_source": "The public analytics project includes Lin-KK, equivalent-circuit and DRT fitting workflows, plus reported EIS-based SOC, SOH, temperature, and phase prediction examples.",
       "audit_question": "Which example inputs are redistributable, and can their documented preprocessing and fitting workflow be reproduced as a non-primary method baseline?"
+    },
+    {
+      "id": "formation_protocol_three_electrode",
+      "name": "Formation-protocol and electrolyte EIS dataset",
+      "source_url": "https://zenodo.org/records/15688067",
+      "role": "Controlled TS + EIS method-calibration candidate",
+      "evidence": {"ts_eis_pairing": 2, "state_metadata": 2, "ageing_context": 0, "raw_access": 1, "license_clarity": 0, "schema_metadata": 1},
+      "known_from_source": "The record describes one test folder per ID, with complete electrochemical data in data.mat and EIS at 50% SOC in eis.mat. A DB workbook is described as the protocol and electrolyte index.",
+      "audit_question": "Do the MAT variables and DB workbook expose a stable test ID, timestamps, units, and a clear relationship between the 50% SOC EIS measurement and the electrochemical record?"
     }
   ]
 }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>October Research Programme | Battery DRT Research</title>
+  <meta name="description" content="Four-week evidence-gated TS, EIS, and DRT research programme.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../../../index.html"><strong>Battery DRT Research Outputs</strong><span>Readable research, code evidence, and weekly progress</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Overview</div>
+      <a class="side-link" href="../../" aria-current="page">Weekly progress</a>
+      <a class="side-link" href="../../../findings/">Research findings</a>
+      <a class="side-link" href="../../../dataset-targets/">Dataset targets</a>
+      <div class="side-section">Evidence</div>
+      <a class="side-link" href="../../../research-tools/dataset_evidence_ledger.csv">Evidence ledger</a>
+      <a class="side-link" href="../../../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header><div class="professional-hero">
+        <div class="eyebrow-row"><span class="eyebrow">October programme</span><span class="eyebrow">4 weeks</span><span class="eyebrow">Planned work</span></div>
+        <h1>From public files to one defensible TS + EIS + DRT benchmark</h1>
+        <p class="lead">This is the execution plan for the next four weeks. It intentionally separates completed audits from planned experiments and treats missing metadata as a result, not an inconvenience.</p>
+        <p class="research-owner">Research workspace maintained by <strong>Nayeem Faisal</strong>.</p>
+      </div></header>
+      <main>
+        <section class="compact-reader">
+          <div class="section-kicker">New research frame</div>
+          <h2>Three link levels prevent false matches</h2>
+          <ul>
+            <li><strong>File coexistence:</strong> TS and EIS exist in the same source. Use only for format and parser tests.</li>
+            <li><strong>Cell-level association:</strong> both modalities share a cell or test ID. Use for inventory and structural comparison.</li>
+            <li><strong>Event-level match:</strong> cell/test, state or SOC, temperature, protocol, and acquisition relationship are documented. Only this level can enter the adapter experiment.</li>
+          </ul>
+        </section>
+        <section class="professional-grid">
+          <article class="professional-card"><span class="tag green">Week 1</span><h3>Metadata gate</h3><p>Audit the formation-protocol source and one ageing source. Produce two manifest decisions.</p></article>
+          <article class="professional-card"><span class="tag green">Week 2</span><h3>Adapter gate</h3><p>Implement one read-only canonical adapter and EIS preflight report for an accepted source.</p></article>
+          <article class="professional-card"><span class="tag green">Week 3</span><h3>DRT gate</h3><p>Document a single DRT configuration, reconstruction, residuals, and one stability test.</p></article>
+          <article class="professional-card"><span class="tag green">Week 4</span><h3>Comparison gate</h3><p>Write an evidence-limited comparison and a supervisor-ready conclusion.</p></article>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Quality rules</div>
+          <h2>What will make the programme credible</h2>
+          <ul>
+            <li>Source paths, file hashes, columns, units, and all join decisions are recorded.</li>
+            <li>Missing SOC, temperature, or event linkage blocks model-target creation.</li>
+            <li>Every DRT result includes its settings and an impedance reconstruction check.</li>
+            <li>Negative results remain published, so the work stays reproducible and useful.</li>
+          </ul>
+          <p class="small-note"><a href="../../../research-tools/OCTOBER_2026_EVIDENCE_GATED_PROGRAM.md">Open the complete execution programme</a> · <a href="../">Open the current A123 audit</a> · <a href="https://zenodo.org/records/15688067" target="_blank" rel="noopener">Open the new controlled candidate</a></p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () { var themeKey="battery-drt-site-theme", sidebarKey="battery-drt-site-sidebar"; function applyTheme(theme){document.documentElement.dataset.theme=theme;var label=document.querySelector("[data-theme-label]");if(label)label.textContent=theme==="dark"?"On":"Off";} function applySidebar(state){document.documentElement.dataset.sidebar=state;var collapsed=state==="collapsed",button=document.querySelector("[data-sidebar-toggle]"),icon=document.querySelector("[data-sidebar-icon]"),label=document.querySelector("[data-sidebar-label]");if(button)button.setAttribute("aria-expanded",collapsed?"false":"true");if(icon)icon.textContent=collapsed?"Menu":"X";if(label)label.textContent=collapsed?"Menu":"Close";} var theme,sidebar;try{theme=localStorage.getItem(themeKey);sidebar=localStorage.getItem(sidebarKey);}catch(error){}applyTheme(theme==="dark"||theme==="light"?theme:"light");applySidebar(sidebar==="collapsed"||sidebar==="expanded"?sidebar:(window.matchMedia("(max-width: 850px)").matches?"collapsed":"expanded"));window.addEventListener("DOMContentLoaded",function(){var themeToggle=document.querySelector("[data-theme-toggle]"),sidebarToggle=document.querySelector("[data-sidebar-toggle]");if(themeToggle)themeToggle.addEventListener("click",function(){var next=document.documentElement.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem(themeKey,next);}catch(error){}applyTheme(next);});if(sidebarToggle)sidebarToggle.addEventListener("click",function(){var next=document.documentElement.dataset.sidebar==="collapsed"?"expanded":"collapsed";try{localStorage.setItem(sidebarKey,next);}catch(error){}applySidebar(next);});});})();
+  </script>
+</body>
+</html>

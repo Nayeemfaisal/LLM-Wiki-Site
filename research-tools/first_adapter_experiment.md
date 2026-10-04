@@ -8,9 +8,10 @@ evidence exercise, not a predictive-model result.
 
 ## Recommended sequence
 
-1. **State-aware source:** inspect one EIS and one pulse file from the LFP SOC EIS and sine-wave collection.
-2. **Ageing source:** inspect the small metadata workbook from the fast-charging ageing record before downloading a full archive.
-3. **Direct modelling reference:** inspect one dynamic-profile / impedance pair from the online EIS-prediction collection.
+1. **Controlled join candidate:** inspect one test-ID folder and DB workbook from the formation-protocol and electrolyte source. Its public record describes `data.mat`, `eis.mat` at 50% SOC, and a test index; verify that statement at file level.
+2. **Cell-level benchmark:** retain A123 for ingestion and EIS schema tests. Its Cell N mapping is explicit, but the audited cycling workbook does not establish an EIS event or state.
+3. **Ageing source:** inspect the small metadata workbook from the fast-charging ageing record before downloading a full archive.
+4. **Direct modelling reference:** inspect one dynamic-profile / impedance pair from the online EIS-prediction collection.
 
 ## Per-source deliverables
 
