@@ -1354,6 +1354,7 @@ window.MathJax = {
     <aside class="sidebar" id="site-navigation" aria-label="Site navigation"><a class="brand" href="index.html"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button><div class="side-section">Start here</div>
 <a class="side-link" href="index.html#project-summary">Project summary</a>
 <a class="side-link" href="index.html#researcher-showcase">Researcher profile</a>
+<a class="side-link" href="index.html#presenter-mode">Presenter mode</a>
 <div class="side-section">Research updates</div>
 <a class="side-link" href="weekly/">Weekly updates</a>
 <a class="side-link" href="weekly/2026-08-22/">August dataset update</a>
@@ -1388,13 +1389,19 @@ window.MathJax = {
       <header class="showcase-header">
         <div class="showcase-hero" id="researcher-showcase">
           <div class="showcase-copy">
-            <div class="showcase-kicker">Research portfolio · 2026</div>
-            <p class="showcase-name">Nayeem Faisal</p>
+            <div class="showcase-identity">
+              <img class="showcase-avatar" src="assets/images/nayeem-faisal-profile.jpeg" alt="Nayeem Faisal">
+              <div>
+                <div class="showcase-kicker">Research portfolio · 2026</div>
+                <p class="showcase-name">Nayeem Faisal</p>
+              </div>
+            </div>
             <h1>Building evidence that battery data can actually support.</h1>
             <p class="showcase-lead">I document how time-series data, electrochemical impedance spectroscopy (EIS), and distribution of relaxation times (DRT) can be linked without hiding missing metadata, failed transfers, or limitations.</p>
             <div class="showcase-actions">
               <a class="showcase-primary" href="weekly/2026-10-04/">Latest research update</a>
               <a class="showcase-secondary" href="findings/">Browse research findings</a>
+              <a class="showcase-linkedin" href="https://www.linkedin.com/in/nayeem-faisal-721619296/" target="_blank" rel="noopener"><span aria-hidden="true">in</span> LinkedIn</a>
             </div>
             <p class="showcase-context">Personal research portfolio for work conducted in the Technical Hochschule Augsburg context. This site is not an official institutional publication.</p>
           </div>
@@ -1417,6 +1424,46 @@ window.MathJax = {
         <article><strong>EIS</strong><span>measured impedance spectra</span></article>
         <article><strong>DRT</strong><span>reproducibility-focused analysis</span></article>
         <article><strong>Audit</strong><span>source, units, IDs, and join evidence</span></article>
+      </div>
+    </section>
+
+    <section class="presenter-deck" id="presenter-mode" aria-labelledby="presenter-title">
+      <div class="presenter-deck-heading">
+        <div>
+          <div class="section-kicker">Presenter mode</div>
+          <h2 id="presenter-title">A concise story for an audience</h2>
+        </div>
+        <p>Use these three sections as a short introduction before opening the detailed evidence pages.</p>
+      </div>
+      <div class="presenter-slides">
+        <article class="presenter-slide presenter-profile-slide">
+          <span class="slide-number">01</span>
+          <img src="assets/images/nayeem-faisal-profile.jpeg" alt="Nayeem Faisal">
+          <div>
+            <div class="slide-label">Researcher</div>
+            <h3>Nayeem Faisal</h3>
+            <p>Battery-data researcher focused on making technical evidence easier to inspect, explain, and reuse.</p>
+            <a href="https://www.linkedin.com/in/nayeem-faisal-721619296/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          </div>
+        </article>
+        <article class="presenter-slide">
+          <span class="slide-number">02</span>
+          <div class="slide-label">Research focus</div>
+          <h3>From raw battery files to defensible decisions</h3>
+          <ul>
+            <li>Screen TS, EIS, and DRT sources for the identifiers and conditions required for a valid link.</li>
+            <li>Test each proposed data connection instead of assuming that similar files describe the same experiment.</li>
+            <li>Publish limits and rejected candidates alongside useful evidence.</li>
+          </ul>
+          <a href="findings/">Open the evidence record</a>
+        </article>
+        <article class="presenter-slide presenter-prototype-slide">
+          <span class="slide-number">03</span>
+          <div class="slide-label">Parallel prototype</div>
+          <h3>Lower-friction student communication</h3>
+          <p>Exploring a prototype where students can ask course questions through a familiar messaging channel and professors can communicate updates without adding unnecessary steps.</p>
+          <p class="prototype-note"><strong>Prototype boundary:</strong> any university deployment would require professor control, approved accounts, data-protection review, and institutional approval.</p>
+        </article>
       </div>
     </section>
 
