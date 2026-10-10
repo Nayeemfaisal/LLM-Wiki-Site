@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Battery DRT Research Outputs</title>
-  <meta name="description" content="Main cross-dataset study predicting limited-frequency measured EIS from time-series features, with CALB kept as a separate internal comparison.">
+  <title>Nayeem Faisal | Battery Data Research Portfolio</title>
+  <meta name="description" content="A public research portfolio documenting evidence-led work on battery time-series, EIS, DRT, data linkage, and reproducible source audits.">
   <link rel="canonical" href="https://nayeemfaisal.github.io/LLM-Wiki-Site/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Battery DRT Research Outputs">
-  <meta property="og:description" content="Main cross-dataset study predicting limited-frequency measured EIS from time-series features, with CALB kept as a separate internal comparison.">
+  <meta property="og:title" content="Nayeem Faisal | Battery Data Research Portfolio">
+  <meta property="og:description" content="Evidence-led battery research on time-series, EIS, DRT, and reproducible data linkage.">
   <meta property="og:url" content="https://nayeemfaisal.github.io/LLM-Wiki-Site/">
   <meta property="og:image" content="https://nayeemfaisal.github.io/LLM-Wiki-Site/sources/downloads/plot/40-outputs-experiments-calb-l148n58a-01-graphs-section-11-time-series-vs-eis-2d-comparison-section-11-time-series-vs-eis-2d-comparison-png.png">
   <meta property="og:image:alt" content="CALB time-series and measured EIS DRT comparison figure">
@@ -1351,8 +1351,9 @@ window.MathJax = {
 
   <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu" title="Close menu"><span data-sidebar-icon aria-hidden="true">&times;</span><span data-sidebar-label>Close</span></button>
   <div class="site-shell">
-    <aside class="sidebar" id="site-navigation" aria-label="Site navigation"><a class="brand" href="index.html"><strong>Battery DRT Research Outputs</strong><span>Battery studies, results, limits, and sources</span></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button><div class="side-section">Start here</div>
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation"><a class="brand" href="index.html"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button><div class="side-section">Start here</div>
 <a class="side-link" href="index.html#project-summary">Project summary</a>
+<a class="side-link" href="index.html#researcher-showcase">Researcher profile</a>
 <div class="side-section">Research updates</div>
 <a class="side-link" href="weekly/">Weekly updates</a>
 <a class="side-link" href="weekly/2026-08-22/">August dataset update</a>
@@ -1384,20 +1385,50 @@ window.MathJax = {
 <div class="side-section">Glossary</div>
 <a class="side-link" href="glossary/">Plain-language glossary</a></aside>
     <div class="page-content">
-      <header>
-
-      <div class="research-hero">
-        <div class="kicker">Main study: cross-dataset missing measurements</div>
-        <h1 class="research-question">Can a short battery pulse recover missing EIS and health information across different datasets?</h1>
-        <div class="hero-evidence">
-          <div class="hero-point"><strong>What worked</strong><span>Version 4 passed one locked test on three cells from a different Oxford dataset. It remains useful evidence only for that exact protocol.</span></div>
-          <div class="hero-point limit"><strong>Where the broad path ended</strong><span>Version 5 could not operate on the different SiCWell dataset under its locked safety rule. Version 6 found no zero-shot or small-calibration candidate stable enough to lock for another outside test. The next study needs controlled exact-cell data.</span></div>
+      <header class="showcase-header">
+        <div class="showcase-hero" id="researcher-showcase">
+          <div class="showcase-copy">
+            <div class="showcase-kicker">Research portfolio · 2026</div>
+            <p class="showcase-name">Nayeem Faisal</p>
+            <h1>Building evidence that battery data can actually support.</h1>
+            <p class="showcase-lead">I document how time-series data, electrochemical impedance spectroscopy (EIS), and distribution of relaxation times (DRT) can be linked without hiding missing metadata, failed transfers, or limitations.</p>
+            <div class="showcase-actions">
+              <a class="showcase-primary" href="weekly/2026-10-04/">Latest research update</a>
+              <a class="showcase-secondary" href="findings/">Browse research findings</a>
+            </div>
+            <p class="showcase-context">Personal research portfolio for work conducted in the Technical Hochschule Augsburg context. This site is not an official institutional publication.</p>
+          </div>
+          <figure class="showcase-visual">
+            <img src="sources/downloads/plot/40-outputs-experiments-calb-l148n58a-01-graphs-section-11-time-series-vs-eis-2d-comparison-section-11-time-series-vs-eis-2d-comparison-png.png" alt="Research figure comparing time-series and EIS-related DRT structure in the CALB internal study">
+            <figcaption><span>Evidence view</span> Time-series and measured impedance are treated as separate signals that must be linked with recorded conditions.</figcaption>
+          </figure>
         </div>
-        <div class="hero-cta"><a class="button" href="cross-dataset/">Open the main study</a></div>
-      </div>
-
       </header>
       <main>
+
+    <section class="showcase-dashboard" aria-labelledby="showcase-dashboard-title">
+      <div>
+        <div class="section-kicker">Researcher snapshot</div>
+        <h2 id="showcase-dashboard-title">What this work is about</h2>
+        <p class="showcase-summary">The goal is not to claim a universal battery model. The goal is to create a traceable path from source files to a justified decision: accept a dataset, reject it, or identify exactly what metadata is still missing.</p>
+      </div>
+      <div class="showcase-stats" aria-label="Research portfolio status">
+        <article><strong>TS</strong><span>cycling and pulse time-series</span></article>
+        <article><strong>EIS</strong><span>measured impedance spectra</span></article>
+        <article><strong>DRT</strong><span>reproducibility-focused analysis</span></article>
+        <article><strong>Audit</strong><span>source, units, IDs, and join evidence</span></article>
+      </div>
+    </section>
+
+    <section class="showcase-workflow" aria-labelledby="workflow-title">
+      <div class="section-kicker">How I work</div>
+      <h2 id="workflow-title">Research method, kept visible</h2>
+      <div class="showcase-steps">
+        <article><span>01</span><h3>Inspect the source</h3><p>Record file structure, variables, units, identifiers, protocols, and available operating conditions before analysis.</p></article>
+        <article><span>02</span><h3>Test the link</h3><p>Only pair TS and EIS when a cell, state, temperature, protocol, and acquisition relationship can be evidenced.</p></article>
+        <article><span>03</span><h3>Publish the decision</h3><p>Report successful paths, rejected candidates, and limitations so the next step can be independently checked.</p></article>
+      </div>
+    </section>
 
     <section id="project-summary">
       <h2>Choose a reader path</h2>
@@ -1528,8 +1559,8 @@ window.MathJax = {
 
       </main>
       <footer>
-        <div><strong>Research workspace maintained by:</strong> Nayeem Faisal &nbsp; <strong>Last updated:</strong> 2026-07-29 &nbsp; <a href="https://github.com/Nayeemfaisal">Contact via GitHub</a></div>
-        <div class="small-note">Public site built from selected research outputs. No university or advisor affiliation is stated because none is approved in the public project record.</div>
+        <div><strong>Research workspace maintained by:</strong> Nayeem Faisal &nbsp; <strong>Last updated:</strong> 2026-10-10 &nbsp; <a href="https://github.com/Nayeemfaisal">Contact via GitHub</a></div>
+        <div class="small-note">Public research portfolio built from selected, dated outputs. It records evidence, decisions, limitations, and next steps; it is not an official Technical Hochschule Augsburg publication.</div>
       </footer>
     </div>
   </div>
