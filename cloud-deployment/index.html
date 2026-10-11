@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud deployment readiness | Battery Data Research</title>
+  <meta name="description" content="GWDG OpenStack readiness for the public battery research wiki and future reproducible research services.">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Site navigation">
+      <a class="brand" href="../"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a>
+      <div class="side-section">Cloud readiness</div>
+      <a class="side-link" href="../">Research portfolio</a>
+      <a class="side-link" href="../weekly/">Weekly updates</a>
+      <a class="side-link" href="../findings/">Research findings</a>
+    </aside>
+    <div class="page-content">
+      <header>
+        <div class="research-hero">
+          <div class="kicker">GWDG OpenStack preparation</div>
+          <h1 class="research-question">Cloud deployment is prepared, with a clear public-data boundary.</h1>
+          <p class="lead">The public wiki remains globally available through GitHub Pages. A small, reproducible Docker package is ready for the assigned GWDG virtual machine when project access and networking are confirmed.</p>
+        </div>
+      </header>
+      <main>
+        <section class="showcase-dashboard">
+          <div><div class="section-kicker">Current status</div><h2>Ready for VM access</h2><p class="showcase-summary">The static wiki can be deployed without exposing a database, API key, student information, or raw dataset archive.</p></div>
+          <div class="showcase-stats"><article><strong>Public</strong><span>GitHub Pages is already online</span></article><article><strong>Prepared</strong><span>Docker and Caddy deployment files</span></article><article><strong>Required</strong><span>VM project access and SSH key</span></article><article><strong>Next</strong><span>Floating IP and firewall rule</span></article></div>
+        </section>
+        <section class="showcase-workflow">
+          <div class="section-kicker">Deployment sequence</div>
+          <h2>Four controlled steps</h2>
+          <div class="showcase-steps">
+            <article><span>01</span><h3>Access the project</h3><p>Confirm that the activated GWDG project is visible in Horizon and register a public SSH key.</p></article>
+            <article><span>02</span><h3>Create the VM</h3><p>Launch an Ubuntu LTS instance with a small public-web footprint and assign a floating IP if external access is required.</p></article>
+            <article><span>03</span><h3>Publish safely</h3><p>Open only the approved web port, deploy the static wiki container, and keep credentials and private data off the server.</p></article>
+          </div>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Important boundary</div>
+          <h2>What belongs on the public VM</h2>
+          <ul>
+            <li>Curated public research pages, figures, and supervisor briefings.</li>
+            <li>Not raw restricted datasets, personal information, credentials, or WhatsApp accounts.</li>
+            <li>Any future student/professor communication service needs separate privacy, security, and institutional approval.</li>
+          </ul>
+          <p class="small-note">The complete deployment instructions are included in the repository under <code>gwdg-cloud/README.md</code>.</p>
+        </section>
+      </main>
+      <footer><div><strong>Research workspace maintained by:</strong> Nayeem Faisal</div><div class="small-note">GWDG readiness page. It records a deployment plan, not a completed deployment.</div></footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+services:
+  research-wiki:
+    build:
+      context: ..
+      dockerfile: gwdg-cloud/Dockerfile
+    container_name: battery-research-wiki
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    read_only: true
+    tmpfs:
+      - /config
+      - /data
+    security_opt:
+      - no-new-privileges:true
