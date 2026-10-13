@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NASA screening result | Battery Data Research</title>
+  <meta name="description" content="Presentation-ready result of the NASA battery dataset screening for TS, EIS, and DRT research.">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Site navigation">
+      <a class="brand" href="../"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a>
+      <div class="side-section">NASA screening</div>
+      <a class="side-link" href="../">Research portfolio</a>
+      <a class="side-link" href="../findings/">Research findings</a>
+      <a class="side-link" href="../external-validation/nasa/">Technical NASA audit</a>
+      <a class="side-link" href="../datasets/">Dataset comparison</a>
+    </aside>
+    <div class="page-content">
+      <header>
+        <div class="research-hero">
+          <div class="kicker">External-validation result</div>
+          <h1 class="research-question">NASA is a traceable TS–EIS candidate, not yet a validated DRT result.</h1>
+          <p class="lead">The archive has enough same-cell cycling and impedance evidence to justify a controlled next experiment. It does not yet prove an event-level time-series-to-EIS match.</p>
+        </div>
+      </header>
+      <main>
+        <section class="showcase-dashboard">
+          <div><div class="section-kicker">Screening outcome</div><h2>Evidence collected from the NASA archive</h2><p class="showcase-summary">The archive was inspected structurally. Candidate pairings are recorded, while missing join metadata is kept visible as a research limitation.</p></div>
+          <div class="showcase-stats">
+            <article><strong>34</strong><span>Battery cells indexed</span></article>
+            <article><strong>68</strong><span>Candidate same-cell pairings</span></article>
+            <article><strong>0</strong><span>Validated DRT comparisons claimed</span></article>
+            <article><strong>Later</strong><span>Robustness-study priority</span></article>
+          </div>
+        </section>
+        <section class="showcase-workflow">
+          <div class="section-kicker">What has been confirmed</div>
+          <h2>Useful evidence for the next phase</h2>
+          <div class="showcase-steps">
+            <article><span>01</span><h3>Same-cell evidence</h3><p>Charge, discharge, and impedance operations occur repeatedly for the same battery-cell identifiers.</p></article>
+            <article><span>02</span><h3>Impedance content</h3><p>The screened records include impedance-related fields such as <code>Battery_impedance</code>, <code>Rectified_Impedance</code>, <code>Re</code>, and <code>Rct</code>.</p></article>
+            <article><span>03</span><h3>Research use</h3><p>The dataset can support a carefully audited comparison between ageing/cycling features and EIS-derived DRT features.</p></article>
+          </div>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Decision and limit</div>
+          <h2>What we can and cannot claim today</h2>
+          <ul>
+            <li><strong>Can claim:</strong> NASA is a useful external candidate for a same-cell cycling and impedance study.</li>
+            <li><strong>Cannot claim:</strong> a finished TS-to-EIS model or validated DRT comparison.</li>
+            <li><strong>Reason:</strong> the inspected records still need an explicit event-level join key and a checked EIS frequency vector before DRT processing.</li>
+          </ul>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Next measurable output</div>
+          <h2>Controlled NASA experiment</h2>
+          <ol>
+            <li>Create a verified <strong>cell ID → cycling record → EIS record</strong> pairing table.</li>
+            <li>Audit units, frequency order, temperature, cycle/state, and measurement timing.</li>
+            <li>Run EIS quality and reconstruction checks.</li>
+            <li>Generate EIS-derived DRT curves only for quality-passing spectra.</li>
+            <li>Compare DRT features with capacity fade, voltage/current features, and cycle number.</li>
+          </ol>
+          <p class="small-note">This route preserves a clear distinction between source screening, reproducible processing, and a scientific validation claim.</p>
+        </section>
+        <p><a class="button" href="../external-validation/nasa/">Open technical NASA audit</a> <a class="button" href="../findings/">Open project findings</a></p>
+      </main>
+      <footer><div><strong>Research workspace maintained by:</strong> Nayeem Faisal</div><div class="small-note">NASA screening result, dated 13 October 2026.</div></footer>
+    </div>
+  </div>
+</body>
+</html>
