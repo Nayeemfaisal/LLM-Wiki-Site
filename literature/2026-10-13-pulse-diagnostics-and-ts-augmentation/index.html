@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Literature note: pulse diagnostics and TS augmentation | Battery Data Research</title>
+  <meta name="description" content="Dated research note on pulse-relaxation diagnostics and time-series augmentation for the TS, EIS, and DRT battery research programme.">
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar" aria-label="Site navigation">
+      <a class="brand" href="../../../"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a>
+      <div class="side-section">Literature review</div>
+      <a class="side-link" href="../../../findings/">Research findings</a>
+      <a class="side-link" href="../../../dataset-targets/">Dataset targets</a>
+      <a class="side-link" href="../../../nasa-results/">NASA screening result</a>
+      <a class="side-link" href="../../../presentations/#drt-pipeline">DRT method pilot</a>
+    </aside>
+    <div class="page-content">
+      <header>
+        <div class="research-hero">
+          <div class="kicker">Literature note · 13 October 2026</div>
+          <h1 class="research-question">Two papers sharpen the next experiment: extract pulse features carefully, then test whether they add value.</h1>
+          <p class="lead">The papers do not validate our pipeline by themselves. They clarify two useful comparison tracks: pulse-relaxation diagnostics and time-series augmentation for state estimation.</p>
+        </div>
+      </header>
+      <main>
+        <section class="showcase-dashboard">
+          <div><div class="section-kicker">Research decision</div><h2>Keep diagnostics and augmentation separate</h2><p class="showcase-summary">One paper concerns extracting EIS-like diagnostics from pulse relaxation. The other concerns generating or augmenting time-series data for SoC estimation. Both are relevant, but neither proves that our matched TS–EIS–DRT pipeline works.</p></div>
+          <div class="showcase-stats"><article><strong>Track A</strong><span>Pulse relaxation to diagnostic features</span></article><article><strong>Track B</strong><span>Time-series augmentation for SoC</span></article><article><strong>Rule</strong><span>Use held-out, matched measurements</span></article><article><strong>Claim</strong><span>No validation claim yet</span></article></div>
+        </section>
+        <section class="showcase-workflow">
+          <div class="section-kicker">Paper 1 · preprint</div>
+          <h2>Lie Generator Networks: pulse relaxation as an EIS-grade diagnostic</h2>
+          <div class="showcase-steps">
+            <article><span>A1</span><h3>What it proposes</h3><p>The authors propose using post-pulse voltage relaxation to estimate time constants that they describe as carrying EIS-grade diagnostic information.</p></article>
+            <article><span>A2</span><h3>Why it matters here</h3><p>It is a direct comparator for our time-domain DRT direction: both start with a current disturbance and a voltage-relaxation response.</p></article>
+            <article><span>A3</span><h3>How we will use it</h3><p>Compare only on matched held-out cells/states. Report reconstruction error, rank correlation, residuals, stability, and uncertainty rather than relying on a visual curve match.</p></article>
+          </div>
+          <p class="small-note"><strong>Limit:</strong> this is an arXiv preprint. Its reported performance is the authors' claim and requires independent reproduction before it can be treated as established evidence.</p>
+          <p><a class="button" href="https://arxiv.org/abs/2605.15351" target="_blank" rel="noopener">Open arXiv record</a> <a class="button" href="https://arxiv.org/pdf/2605.15351" target="_blank" rel="noopener">Open PDF</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Paper 2 · Journal of Power Sources, 2023</div>
+          <h2>Time-series Wasserstein GAN for state-of-charge estimation</h2>
+          <ul>
+            <li><strong>Published topic:</strong> a Wasserstein GAN approach for time-series data in lithium-ion battery SoC estimation.</li>
+            <li><strong>Relevance:</strong> it motivates a later augmentation baseline when real TS coverage is sparse or unbalanced.</li>
+            <li><strong>Boundary:</strong> generated TS data must never be presented as measured EIS or measured DRT evidence.</li>
+            <li><strong>Use in this project:</strong> test augmentation only after a real, held-out matched TS–EIS subset exists; compare it against a no-augmentation baseline.</li>
+          </ul>
+          <p><a class="button" href="https://doi.org/10.1016/j.jpowsour.2023.233472" target="_blank" rel="noopener">Open publication record</a></p>
+        </section>
+        <section class="compact-reader">
+          <div class="section-kicker">Next experiment</div>
+          <h2>Concrete addition to the research plan</h2>
+          <ol>
+            <li>Choose a small matched TS–EIS subset with cell ID, temperature, and state metadata.</li>
+            <li>Use real pulse/rest records to derive time-domain diagnostic features.</li>
+            <li>Generate the EIS-derived DRT reference only after quality checks.</li>
+            <li>Evaluate a plain baseline, a time-domain feature method, and any augmentation method separately.</li>
+            <li>Publish metrics and limitations for every held-out test.</li>
+          </ol>
+        </section>
+      </main>
+      <footer><div><strong>Research workspace maintained by:</strong> Nayeem Faisal</div><div class="small-note">Literature synthesis, not a reproduction or validation study.</div></footer>
+    </div>
+  </div>
+</body>
+</html>
