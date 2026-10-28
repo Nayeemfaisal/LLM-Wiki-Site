@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://nayeemfaisal.github.io/LLM-Wiki-Site/practical-use-cases/">
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="professional-page">
+<body class="professional-page use-case-page">
   <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu" title="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
   <div class="site-shell">
     <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
@@ -39,35 +39,39 @@
         </div>
       </header>
       <main>
-        <section class="note">
-          <strong>Two user cases, one rule:</strong> the workflow does not invent links between files. It accepts a match only when the cell, state, temperature, protocol, units, and timing evidence support the intended comparison.
+        <section class="visual-brief" aria-labelledby="visual-brief-title">
+          <div><div class="section-kicker">Value in one view</div><h2 id="visual-brief-title">From files to a decision a researcher can use</h2></div>
+          <ol class="visual-flow" aria-label="Research workflow">
+            <li><span class="flow-number">01</span><strong>Bring files</strong><small>Time-series, EIS, and test notes</small></li>
+            <li><span class="flow-number">02</span><strong>Check evidence</strong><small>Cell, state, temperature, units, timing</small></li>
+            <li><span class="flow-number">03</span><strong>Prepare analysis</strong><small>Quality-screen EIS and reconstruct DRT</small></li>
+            <li><span class="flow-number">04</span><strong>Make a decision</strong><small>Use, restrict, or reject the dataset</small></li>
+          </ol>
         </section>
-        <section>
-          <div class="section-kicker">User case 1</div>
-          <h2>Screen a new battery dataset before spending time on modelling</h2>
-          <p><strong>User:</strong> a researcher has a new archive containing cycling CSV files and perhaps EIS files. They want to know whether it can support a TS-EIS-DRT study.</p>
-          <div class="summary-grid">
-            <article class="summary-card"><span class="status-pill good">Input</span><h3>What the researcher provides</h3><ul><li>Data files and available documentation.</li><li>Cell identifiers, chemistry, temperature, cycling protocol, and units where available.</li><li>The intended outcome: for example SoC, SoH, EIS comparison, or DRT analysis.</li></ul></article>
-            <article class="summary-card"><span class="status-pill warn">Checks</span><h3>What the workflow checks</h3><ul><li>Are time-series and EIS measurements present?</li><li>Can records be linked to the same cell and condition?</li><li>Are units, timestamps, and protocol fields usable?</li><li>Does the EIS input pass structural and quality screening before DRT?</li></ul></article>
-            <article class="summary-card"><span class="status-pill good">Output</span><h3>What the researcher receives</h3><ul><li>A source manifest and availability summary.</li><li>A decision: <strong>usable</strong>, <strong>usable with restrictions</strong>, or <strong>not suitable yet</strong>.</li><li>A short list of missing metadata or checks required before modelling.</li></ul></article>
+
+        <section class="use-case" aria-labelledby="case-one-title">
+          <div class="use-case-heading"><span class="case-index">01</span><div><div class="section-kicker">Practical user case</div><h2 id="case-one-title">Is this new dataset worth modelling?</h2><p>A researcher receives a battery archive and needs an answer before investing days in preprocessing or model training.</p></div></div>
+          <div class="case-layout">
+            <ol class="case-steps">
+              <li><span>1</span><div><strong>Input</strong><p>Upload data files and available test documentation.</p></div></li>
+              <li><span>2</span><div><strong>Screen</strong><p>Check TS, EIS, cell identity, conditions, units, and timing.</p></div></li>
+              <li><span>3</span><div><strong>Receive a result</strong><p>Get a short source manifest and a clear suitability decision.</p></div></li>
+            </ol>
+            <aside class="decision-card" aria-label="Example screening result"><span class="status-pill warn">Example result</span><h3>Useful, but restricted</h3><p><strong>Found:</strong> cycling curves and EIS spectra.</p><p><strong>Missing:</strong> common cell ID and state-of-charge evidence.</p><p><strong>Decision:</strong> explore TS and EIS separately; do not claim a matched TS-to-EIS or DRT result yet.</p><a class="button" href="../dataset-targets/">Open screening criteria</a></aside>
           </div>
-          <section class="research-panel"><h3>Example decision</h3><p><strong>Candidate archive:</strong> it contains cycling curves and EIS spectra from the same battery type, but no common cell identifier or state-of-charge record.</p><p><strong>Result:</strong> it can support separate TS and EIS exploration, but it cannot yet support a matched TS-to-EIS or DRT claim. The next action is to recover the missing test log or restrict the work to a documented subset.</p><p><a class="button" href="../dataset-targets/">See the screening criteria</a> <a class="button" href="../external-validation/dataset-exploration/">See dataset-screening evidence</a></p></section>
         </section>
-        <section>
-          <div class="section-kicker">User case 2</div>
-          <h2>Prepare a small matched set for DRT and comparison</h2>
-          <p><strong>User:</strong> a researcher has selected measurements from the same cells and wants to compare an EIS-derived DRT representation with the battery's preceding or nearby time-series behaviour.</p>
-          <div class="summary-grid">
-            <article class="summary-card"><span class="status-pill good">Input</span><h3>What the researcher provides</h3><ul><li>A fixed list of cells and measurement identifiers.</li><li>TS windows and EIS spectra with known test conditions.</li><li>A predeclared matching rule, such as same cell, temperature, state range, and cycle window.</li></ul></article>
-            <article class="summary-card"><span class="status-pill warn">Method</span><h3>What the workflow does</h3><ul><li>Freezes the match manifest before modelling.</li><li>Runs EIS quality metadata checks.</li><li>Runs DRT reconstruction with saved settings and stability/uncertainty checks.</li><li>Compares any learned result with a simple held-out baseline.</li></ul></article>
-            <article class="summary-card"><span class="status-pill good">Output</span><h3>What the researcher receives</h3><ul><li>A traceable matched dataset for analysis.</li><li>Plots and result tables with the link back to the source measurements.</li><li>A conclusion of support, partial support, no support, or inconclusive.</li></ul></article>
+
+        <section class="use-case" aria-labelledby="case-two-title">
+          <div class="use-case-heading"><span class="case-index">02</span><div><div class="section-kicker">Practical user case</div><h2 id="case-two-title">Can a matched subset support DRT analysis?</h2><p>A researcher has selected records from the same cells and wants an evidence-based comparison of time-series behaviour and impedance-derived features.</p></div></div>
+          <div class="case-layout case-layout-figure">
+            <figure class="case-figure"><img src="../sources/downloads/plot/40-outputs-experiments-calb-l148n58a-01-graphs-section-11-time-series-vs-eis-2d-comparison-section-11-time-series-vs-eis-2d-comparison-png.png" alt="Example CALB figure showing time-series and measured impedance evidence"><figcaption><strong>Visible evidence:</strong> records from the selected cells and their measured conditions are kept traceable.</figcaption></figure>
+            <div class="case-outcomes"><div class="outcome-item"><span>1</span><p><strong>Freeze the matched list</strong><br>Same cell, known conditions, and a stated join rule.</p></div><div class="outcome-item"><span>2</span><p><strong>Quality-check EIS</strong><br>Record consistency metadata before DRT.</p></div><div class="outcome-item"><span>3</span><p><strong>Compare fairly</strong><br>Test against a simple held-out baseline.</p></div><div class="outcome-item outcome-item-final"><span>Result</span><p><strong>Traceable DRT-ready evidence package</strong><br>Useful for a controlled study, not a universal model claim.</p></div><a class="button" href="../calb/">Open CALB evidence</a></div>
           </div>
-          <section class="research-panel"><h3>Example decision</h3><p><strong>Matched subset:</strong> EIS spectra and pulse/cycling records are available for the same CALB cells at recorded temperatures and protocols.</p><p><strong>Result:</strong> the subset becomes an internal evidence package for a controlled comparison. It is useful for testing the workflow, but it does not justify a universal model claim until it succeeds on an independent matched set.</p><p><a class="button" href="../calb/">Open CALB evidence package</a> <a class="button" href="../demo-api-hpc/">Open the local pipeline demo</a></p></section>
         </section>
         <section>
           <div class="section-kicker">How to use this wiki</div>
-          <h2>Start with the question you need to answer</h2>
-          <ol class="clean-list"><li><strong>"Can I use this dataset?"</strong> Start at <a href="../dataset-targets/">Dataset targets</a>, then use the source and screening pages.</li><li><strong>"Can I claim the measurements are matched?"</strong> Review the matching rules and external-validation limits before joining records.</li><li><strong>"Can I run DRT?"</strong> Check EIS quality first, then use the DRT route with saved settings and uncertainty/stability evidence.</li><li><strong>"Does the model transfer?"</strong> Use the recorded comparison against simple baselines. A small improvement or a failed result is still useful evidence.</li></ol>
+          <h2>Choose the page that answers your question</h2>
+          <div class="question-grid"><a href="../dataset-targets/"><strong>Can I use this dataset?</strong><span>Dataset targets</span></a><a href="../external-validation/"><strong>Can I claim a match?</strong><span>External validation</span></a><a href="../demo-api-hpc/"><strong>Can I run the workflow?</strong><span>API/HPC demo</span></a><a href="../six-month-outcome/"><strong>What has been proven?</strong><span>Six-month outcome</span></a></div>
         </section>
         <section class="compact-reader"><div class="section-kicker">Research boundary</div><h2>What this does not do yet</h2><p>The current work does not offer a universal battery-health prediction service. It provides a reproducible route for selecting defensible data, preparing quality-checked EIS for DRT, and deciding when a model result is scientifically supported.</p><p><a href="../six-month-outcome/">Read the six-month outcome</a> · <a href="../findings/">Read the research findings</a> · <a href="../weekly/">Open the dated work record</a></p></section>
       </main>
