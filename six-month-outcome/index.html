@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Six-Month Research Outcome | Battery DRT Research Outputs</title>
+  <meta name="description" content="Evidence-based six-month outcome for the battery time-series, EIS, and DRT research programme.">
+  <link rel="canonical" href="https://nayeemfaisal.github.io/LLM-Wiki-Site/six-month-outcome/">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="professional-page">
+  <button class="sidebar-floating-toggle" type="button" data-sidebar-toggle aria-controls="site-navigation" aria-expanded="true" aria-label="Close menu" title="Close menu"><span data-sidebar-icon aria-hidden="true">X</span><span data-sidebar-label>Close</span></button>
+  <div class="site-shell">
+    <aside class="sidebar" id="site-navigation" aria-label="Site navigation">
+      <a class="brand" href="../index.html"><strong>Nayeem Faisal</strong><span>Battery data research portfolio</span></a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode"><span>Dark mode</span><span class="toggle-state" data-theme-label>Off</span></button>
+      <div class="side-section">Start here</div>
+      <a class="side-link" href="../index.html#read-first">Project summary</a>
+      <a class="side-link" href="./">Six-month outcome</a>
+      <a class="side-link" href="../weekly/">Weekly updates</a>
+      <div class="side-section">Research record</div>
+      <a class="side-link" href="../findings/">Research findings</a>
+      <a class="side-link" href="../dataset-targets/">Dataset targets</a>
+      <a class="side-link" href="../cross-dataset/">Cross-dataset study</a>
+      <a class="side-link" href="../external-validation/">External validation</a>
+      <div class="side-section">Working outputs</div>
+      <a class="side-link" href="../calb/">CALB evidence package</a>
+      <a class="side-link" href="../nasa-results/">NASA screening result</a>
+      <a class="side-link" href="../demo-api-hpc/">API/HPC demo</a>
+      <a class="side-link" href="../sources/">Sources and papers</a>
+    </aside>
+    <div class="page-content">
+      <header>
+        <div class="professional-hero">
+          <div class="eyebrow-row"><span class="eyebrow">Research outcome</span><span class="eyebrow">Updated 28 October 2026</span></div>
+          <h1>Six-month outcome: a defensible path from battery files to research decisions</h1>
+          <p class="lead">The main result is not a universal battery model. It is a working, evidence-led framework that shows which datasets can be used, which claims are not yet supported, and what experiment is needed next.</p>
+        </div>
+      </header>
+      <main>
+        <section class="note">
+          <strong>Plain-language conclusion:</strong> The project has established the workflow for linking battery time-series, EIS, and DRT analysis. It has also shown that a fixed model does not transfer reliably across unrelated datasets. This negative result is useful: it prevents an unsupported generalisation claim and narrows the next study to a controlled, matched experiment.
+        </section>
+
+        <section>
+          <div class="section-kicker">Outcome at a glance</div>
+          <div class="summary-grid">
+            <article class="summary-card"><span class="status-pill good">Established</span><h3>Research target and decision rules</h3><p>A TS–EIS–DRT dataset is accepted only when cell identity, state, temperature, units, protocol, and a join rule are evidenced. This replaces informal file matching with a repeatable screening process.</p><a class="button" href="../dataset-targets/">Open target criteria</a></article>
+            <article class="summary-card"><span class="status-pill good">Working</span><h3>Local processing route</h3><p>A local FastAPI demonstration accepts a job, stores input, runs a worker, returns a result, and includes structural EIS intake checks before DRT preparation.</p><a class="button" href="../demo-api-hpc/">Open API/HPC demo</a></article>
+            <article class="summary-card"><span class="status-pill good">Documented</span><h3>Traceable evidence base</h3><p>Source screens, manifests, weekly notes, data-quality outputs, and validation artifacts are publicly organised so each claim can be checked against its supporting evidence.</p><a class="button" href="../weekly/">Open dated record</a></article>
+            <article class="summary-card"><span class="status-pill warn">Next phase</span><h3>Controlled matched experiment</h3><p>The next scientific step is a narrow same-cell, same-state, same-temperature pulse-and-EIS study. Broader transfer should not be claimed before this is established.</p><a class="button" href="../implementation/">Open implementation plan</a></article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-kicker">What has been achieved</div>
+          <h2>Six concrete research outputs</h2>
+          <ol class="clean-list">
+            <li><strong>Dataset screening framework:</strong> candidate datasets are classified by what they genuinely support: time-series, EIS, DRT preparation, cell-level association, or state-level matching.</li>
+            <li><strong>Source audit discipline:</strong> manifests now record provenance, licences, identifiers, units, test context, and the exact reason a dataset is accepted, held, or rejected.</li>
+            <li><strong>CALB evidence package:</strong> the local package contains a 264-row manifest across 11 processed cells, eight protocols, and 10, 25, and 40 degrees C conditions. It provides an internal evidence base for pulse, drive-cycle, and measured-EIS comparison.</li>
+            <li><strong>EIS quality metadata:</strong> a finite-range Kramers-Kronig consistency screen was run on 21,366 rows; 20,961 rows passed the configured residual screen. The result is recorded as quality metadata, not as proof that a prediction model is valid.</li>
+            <li><strong>Reproducible pipeline demonstration:</strong> the demo pipeline documents objective, method, scoring, results, code, and data. On its controlled demo input, the recorded model RMSE was 0.00798 ohm versus 0.00921 ohm for its baseline. This demonstrates the software path, not broad scientific generalisation.</li>
+            <li><strong>External-testing boundary:</strong> frozen external checks recorded where the fixed method does not have support. The project therefore has an auditable answer to both positive and negative outcomes.</li>
+          </ol>
+        </section>
+
+        <section>
+          <div class="section-kicker">Results, stated carefully</div>
+          <h2>What the tests say</h2>
+          <table class="evidence-table">
+            <thead><tr><th>Evidence item</th><th>Recorded result</th><th>Allowed conclusion</th></tr></thead>
+            <tbody>
+              <tr><td>Cambridge one-shot EIS prediction</td><td>88 cells and 20,594 scored rows. The locked model lowered overall RMSE by 1.67% versus the locked global-mean baseline.</td><td><strong>Partial support only.</strong> The predeclared 5% margin and both-component rule were not met.</td></tr>
+              <tr><td>LiFePO4 final external check</td><td>The final frozen run used only a global-mean negative-control baseline because no learned model was freeze-ready.</td><td><strong>No support</strong> for a learned time-domain-to-EIS pipeline from this run.</td></tr>
+              <tr><td>CALCE, RADAR4KIT, Stanford, Panasonic checks</td><td>Same-cell evidence or runnable workflows were found in different forms, but the current fixed rule was blocked or did not beat the appropriate baseline.</td><td>These are qualification and failure findings, not external validation success.</td></tr>
+              <tr><td>NASA archive screen</td><td>Same-cell impedance plus charge/discharge rows were identified, but the source does not yet establish the event-level TS-to-EIS join needed for the target bridge.</td><td>A traceable candidate for controlled follow-up, not a validated DRT result.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="research-panel">
+          <div class="section-kicker">Scientific interpretation</div>
+          <h2>The key finding is about experimental context</h2>
+          <p>Time-series and EIS data are not automatically compatible because they come from the same battery type or the same archive. The useful unit of analysis is a documented measurement relationship: the same cell, a known state of charge, temperature, ageing condition, and test protocol. The negative cross-dataset results show why this requirement matters.</p>
+          <p>DRT is therefore used as an analysis output for quality-checked EIS spectra, alongside reconstruction, residual, stability, and uncertainty checks. It is not treated as an automatic label produced from any CSV file.</p>
+        </section>
+
+        <section>
+          <div class="section-kicker">What remains open</div>
+          <h2>Boundaries of the current result</h2>
+          <ul>
+            <li>No universal TS-to-EIS or TS-to-DRT model has been demonstrated.</li>
+            <li>Cell-level associations do not by themselves prove event-level or state-level measurement pairing.</li>
+            <li>Kramers-Kronig consistency is an EIS quality screen; it is not a substitute for DRT uncertainty or external model validation.</li>
+            <li>The local API/HPC workflow is operational as a demonstration. A remote VM/HPC run remains a deployment task and requires separately verified access.</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="section-kicker">Decision for the next phase</div>
+          <h2>Do less, but make the evidence stronger</h2>
+          <ol class="clean-list">
+            <li>Choose one source with explicit same-cell and state metadata.</li>
+            <li>Freeze a small manifest before modelling.</li>
+            <li>Run EIS quality, DRT reconstruction, stability, and uncertainty checks with saved settings.</li>
+            <li>Compare against a simple baseline on held-out cells or an independent matched set.</li>
+            <li>Report either support, partial support, no support, or inconclusive status without post-result tuning.</li>
+          </ol>
+        </section>
+
+        <section class="compact-reader">
+          <div class="section-kicker">Evidence trail</div>
+          <h2>Open the supporting material</h2>
+          <p><a href="../cross-dataset/">Cross-dataset study</a> · <a href="../external-validation/">External validation status</a> · <a href="../nasa-results/">NASA screening result</a> · <a href="../calb/">CALB evidence package</a> · <a href="../findings/">Research findings</a> · <a href="../weekly/">Weekly research record</a></p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var key = "battery-drt-site-theme", sidebarKey = "battery-drt-site-sidebar";
+    function theme() { try { var saved = localStorage.getItem(key); if (saved === "dark" || saved === "light") return saved; } catch (e) {} return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+    function sidebar() { try { var saved = localStorage.getItem(sidebarKey); if (saved === "collapsed" || saved === "expanded") return saved; } catch (e) {} return window.matchMedia && window.matchMedia("(max-width: 850px)").matches ? "collapsed" : "expanded"; }
+    function applyTheme(value) { document.documentElement.dataset.theme = value; var label = document.querySelector("[data-theme-label]"); if (label) label.textContent = value === "dark" ? "On" : "Off"; }
+    function applySidebar(value) { document.documentElement.dataset.sidebar = value; var button = document.querySelector("[data-sidebar-toggle]"), icon = document.querySelector("[data-sidebar-icon]"), label = document.querySelector("[data-sidebar-label]"), collapsed = value === "collapsed"; if (button) { button.setAttribute("aria-expanded", collapsed ? "false" : "true"); button.setAttribute("aria-label", collapsed ? "Open menu" : "Close menu"); } if (icon) icon.textContent = collapsed ? "Menu" : "X"; if (label) label.textContent = collapsed ? "Menu" : "Close"; }
+    applyTheme(theme()); applySidebar(sidebar());
+    window.addEventListener("DOMContentLoaded", function () {
+      var themeButton = document.querySelector("[data-theme-toggle]"), sidebarButton = document.querySelector("[data-sidebar-toggle]");
+      if (themeButton) themeButton.addEventListener("click", function () { var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; try { localStorage.setItem(key, next); } catch (e) {} applyTheme(next); });
+      if (sidebarButton) sidebarButton.addEventListener("click", function () { var next = document.documentElement.dataset.sidebar === "collapsed" ? "expanded" : "collapsed"; try { localStorage.setItem(sidebarKey, next); } catch (e) {} applySidebar(next); });
+    });
+  })();
+  </script>
+</body>
+</html>
